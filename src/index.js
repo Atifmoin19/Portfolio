@@ -53,7 +53,7 @@ const theme = extendTheme({
 
 ReactDOM.render(
   <ChakraProvider theme={theme}>
-    <BrowserRouter>
+    <BrowserRouter basename="/Portfolio">
       <App />
     </BrowserRouter>
   </ChakraProvider>,
