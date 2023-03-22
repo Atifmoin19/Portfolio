@@ -60,30 +60,30 @@ const HeroSection = () => {
           knowledge & intelligence in the growth of the organization.
         </Text>
         <Flex gap={3}>
-          <a href={cv} target="_blank" rel="noreferrer">
-            <Button
-              my={"2rem"}
-              colorScheme="primary"
-              _hover={{ bg: "primary.400" }}
-            >
-              <Text mx=".2rem">Download CV </Text>{" "}
-              <AiOutlineDownload size={"20px"} />
-            </Button>
-          </a>
-          {/* <a
-            href="https://wa.me/7007136187?text=Hello%20Atif"
-            target={"_blank"}
-          > */}
+          {/* <a href={cv} target="_blank" rel="noreferrer"> */}
           <Button
             my={"2rem"}
-            variant="outline"
-            _hover={{ bg: "primary.400", color: "#fff" }}
-            colorScheme={"primary"}
+            colorScheme="primary"
+            _hover={{ bg: "primary.400" }}
           >
-            <Text mx=".2rem">WhatsApp </Text>{" "}
-            <AiOutlineWhatsApp size={"20px"} />
+            <Text mx=".2rem">Download CV </Text>{" "}
+            <AiOutlineDownload size={"20px"} />
           </Button>
           {/* </a> */}
+          <a
+            href="https://wa.me/7007136187?text=Hello%20Atif"
+            target={"_blank"}
+          >
+            <Button
+              my={"2rem"}
+              variant="outline"
+              _hover={{ bg: "primary.400", color: "#fff" }}
+              colorScheme={"primary"}
+            >
+              <Text mx=".2rem">WhatsApp </Text>{" "}
+              <AiOutlineWhatsApp size={"20px"} />
+            </Button>
+          </a>
         </Flex>
       </Box>
       <Box
