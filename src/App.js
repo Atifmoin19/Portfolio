@@ -32,8 +32,8 @@ function App() {
           <Routes>
             <Route>
               <Route path="" element={<HeroSection />} />
-              <Route path="Project" element={<Projects />} />
-              <Route path="Contact" element={<ContactFrom />} />
+              <Route path="/Project" element={<Projects />} />
+              <Route path="/Contact" element={<ContactFrom />} />
             </Route>
           </Routes>
         </Box>
