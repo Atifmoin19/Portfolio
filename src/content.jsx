@@ -30,8 +30,8 @@ const Content = () => {
           <Routes>
             <Route path="/" element={<HeroSection />} />
             <Route path="/Portfolio" element={<HeroSection />} />
-            <Route path="/Project" element={<Projects />} />
-            <Route path="/Contact" element={<ContactFrom />} />
+            {/* <Route path="/Project" element={<Projects />} /> */}
+            {/* <Route path="/Contact" element={<ContactFrom />} /> */}
           </Routes>
         </Box>
         <Footer />
