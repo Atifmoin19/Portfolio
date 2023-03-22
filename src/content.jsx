@@ -14,9 +14,8 @@ const Content = () => {
   var url = window.location.pathname;
   var splitUrl = url.split("/");
   var currentPagep = splitUrl[splitUrl.length - 1];
-  useEffect(() => {
-    console.log(splitUrl.length, "ccc");
-  }, [splitUrl.length]);
+  console.log(currentPagep, "mane page");
+  useEffect(() => {}, [splitUrl.length]);
   return (
     <>
       <Box minH="100vh" position={"relative"} width="100%" overflow={"hidden"}>

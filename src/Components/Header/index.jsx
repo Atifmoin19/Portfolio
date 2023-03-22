@@ -36,7 +36,7 @@ const Header = () => {
           <Box
             w={"40px"}
             onClick={() => {
-              handelNavMenue("");
+              handelNavMenue("/");
             }}
           >
             <img src={logo} alt="Logo" />

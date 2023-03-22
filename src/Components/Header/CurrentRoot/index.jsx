@@ -5,20 +5,26 @@ import { useNavigate } from "react-router-dom";
 
 const CurrentRoot = () => {
   const navigate = useNavigate();
+  var url = window.location.pathname;
+  var splitUrl = url.split("/");
+  var currentPage = splitUrl[splitUrl.length - 1];
+  localStorage.setItem("currentpage", currentPage);
   const cp = localStorage.getItem("currentpage");
+  console.log("cp", cp);
+  console.log("currentpage", currentPage);
+
   return (
     <Box mt={"5rem"}>
       <Flex width={"100%"} py=".3rem" px={"5rem"} gap="5">
         <Text
           onClick={() => {
-            localStorage.setItem("currentpage", "");
             navigate("/");
           }}
         >
           Home
         </Text>
 
-        {cp === "" && cp === "/" ? (
+        {cp === "Portfolio" || cp === "" ? (
           ""
         ) : (
           <Flex alignItems={"center"} gap="5">
