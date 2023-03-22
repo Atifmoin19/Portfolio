@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
-import AppRoutes from "./AppRoutes";
-import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 const theme = extendTheme({
   breakpoints: {
     xs: "300px",
@@ -53,9 +51,7 @@ const theme = extendTheme({
 
 ReactDOM.render(
   <ChakraProvider theme={theme}>
-    <BrowserRouter basename="/Portfolio">
-      <AppRoutes />
-    </BrowserRouter>
+    <App />
   </ChakraProvider>,
   document.getElementById("root")
 );
