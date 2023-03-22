@@ -18,7 +18,7 @@ const CurrentRoot = () => {
           Home
         </Text>
 
-        {cp === "" ? (
+        {cp === "" && cp === "/" ? (
           ""
         ) : (
           <Flex alignItems={"center"} gap="5">

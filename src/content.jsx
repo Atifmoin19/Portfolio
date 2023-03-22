@@ -11,13 +11,12 @@ import CurrentRoot from "./Components/Header/CurrentRoot";
 
 const Content = () => {
   const [currentPage, setCurrentPage] = useState("");
+  var url = window.location.pathname;
+  var splitUrl = url.split("/");
+  var currentPagep = splitUrl[splitUrl.length - 1];
   useEffect(() => {
-    var url = window.location.pathname;
-    var splitUrl = url.split("/");
-    var currentPage = splitUrl[splitUrl.length - 1];
-    console.log(currentPage);
-    setCurrentPage(currentPage);
-  }, []);
+    console.log(splitUrl.length, "ccc");
+  }, [splitUrl.length]);
   return (
     <>
       <Box minH="100vh" position={"relative"} width="100%" overflow={"hidden"}>
