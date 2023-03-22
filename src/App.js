@@ -30,10 +30,11 @@ function App() {
           px={{ lg: "2rem", md: "2rem", sm: "2rem", xs: "1.2rem" }}
         >
           <Routes>
-            <Route exact path="/" element={<HeroSection />} />
-            <Route exact path="/Portfolio" element={<HeroSection />} />
-            <Route exact path="/project" element={<Projects />} />
-            <Route exact path="/contact" element={<ContactFrom />} />
+            <Route>
+              <Route path="" element={<HeroSection />} />
+              <Route path="Project" element={<Projects />} />
+              <Route path="Contact" element={<ContactFrom />} />
+            </Route>
           </Routes>
         </Box>
         <Footer />

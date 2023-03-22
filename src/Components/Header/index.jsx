@@ -10,7 +10,7 @@ const Header = () => {
   const navigate = useNavigate();
   const handelNavMenue = (cp) => {
     setToggle(false);
-    navigate("/" + cp);
+    navigate("/Portfolio/" + cp);
     localStorage.setItem("currentpage", cp);
   };
 

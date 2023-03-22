@@ -12,7 +12,7 @@ const CurrentRoot = () => {
         <Text
           onClick={() => {
             localStorage.setItem("currentpage", "");
-            navigate("/");
+            navigate("/Portfolio/");
           }}
         >
           Home
