@@ -39,16 +39,16 @@ const Login = () => {
       });
       localStorage.setItem("userId", user);
       localStorage.setItem("token", "asdfd3e1ghjk2asdasd34567890daa");
-      try {
-        const docRef = await addDoc(collection(firestore, "todos"), {
-          name: data.UID,
-          token: "asdfd3e1ghjk2asdasd34567890daa",
-        });
-        console.log("Document written with ID: ", docRef.id);
-        navigate(`/about/${docRef.id}`);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
+      // try {
+      //   const docRef = await addDoc(collection(firestore, "todos"), {
+      //     name: data.UID,
+      //     token: "asdfd3e1ghjk2asdasd34567890daa",
+      //   });
+      //   console.log("Document written with ID: ", docRef.id);
+      //   navigate(`/about/${docRef.id}`);
+      // } catch (e) {
+      //   console.error("Error adding document: ", e);
+      // }
       navigate("/dashboard/Admin");
     } else {
       toast({

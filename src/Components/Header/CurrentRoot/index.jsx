@@ -10,8 +10,6 @@ const CurrentRoot = () => {
   var currentPage = splitUrl[splitUrl.length - 1];
   localStorage.setItem("currentpage", currentPage);
   const cp = localStorage.getItem("currentpage");
-  console.log("cp", cp);
-  console.log("currentpage", currentPage);
 
   return (
     <Box mt={"5rem"}>
