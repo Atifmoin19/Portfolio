@@ -12,6 +12,8 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { collection, addDoc } from "firebase/firestore";
+import { firestore } from "../../firebase/index";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,7 +29,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const payload =
       data.UID.toLowerCase().replaceAll(" ", "") === user &&
       data.Password.replaceAll(" ", "") === password;
@@ -37,6 +39,16 @@ const Login = () => {
       });
       localStorage.setItem("userId", user);
       localStorage.setItem("token", "asdfd3e1ghjk2asdasd34567890daa");
+      try {
+        const docRef = await addDoc(collection(firestore, "todos"), {
+          name: data.UID,
+          token: "asdfd3e1ghjk2asdasd34567890daa",
+        });
+        console.log("Document written with ID: ", docRef.id);
+        navigate(`/about/${docRef.id}`);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
       navigate("/dashboard/Admin");
     } else {
       toast({

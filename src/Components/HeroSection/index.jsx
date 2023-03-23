@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import myImage from "../../Assets/myimage.jpeg";
 import Typical from "react-typical";
 import { AiOutlineDownload, AiOutlineWhatsApp } from "react-icons/ai";
-import cv from "../../Assets/resume.pdf";
+
 const HeroSection = () => {
   window.scroll({
     top: 0,

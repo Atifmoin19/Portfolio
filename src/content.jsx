@@ -6,6 +6,7 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import HeroSection from "./Components/HeroSection";
 import Projects from "./Components/Projects";
+
 import {
   Routes,
   Route,
@@ -44,6 +45,7 @@ const Content = () => {
             <Route path="/Project" element={<Projects />} />
             <Route path="/Contact" element={<ContactFrom />} />
             <Route path="/Login" element={<Login />} />
+
             <Route path="/dashboard" element={<PrivateRoutes />}>
               <Route path="Admin" element={<Admin />} />
             </Route>
