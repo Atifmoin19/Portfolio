@@ -4,6 +4,9 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
+import { Provider } from "react-redux";
+import store from "./store/reducer";
+
 import App from "./App";
 const theme = extendTheme({
   breakpoints: {
@@ -51,7 +54,9 @@ const theme = extendTheme({
 
 ReactDOM.render(
   <ChakraProvider theme={theme}>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </ChakraProvider>,
   document.getElementById("root")
 );

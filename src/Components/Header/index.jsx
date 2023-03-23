@@ -4,10 +4,13 @@ import logo from "../../Assets/logo.png";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
+  const isLogin =
+    localStorage.getItem("token") === useSelector((state) => state.token);
   const handelNavMenue = (cp) => {
     setToggle(false);
     navigate(cp);
@@ -42,18 +45,43 @@ const Header = () => {
             <img src={logo} alt="Logo" />
           </Box>
 
-          <Box
-            cursor={"pointer"}
-            onClick={() => {
-              setToggle(!toggle);
-            }}
-          >
-            {toggle ? (
-              <RxCross2 size={"30px"} />
+          <Flex gap={5}>
+            <Box
+              cursor={"pointer"}
+              onClick={() => {
+                setToggle(!toggle);
+              }}
+            >
+              {toggle ? (
+                <RxCross2 size={"30px"} />
+              ) : (
+                <AiOutlineMenu size={"30px"} />
+              )}
+            </Box>
+            {isLogin ? (
+              <Box
+                cursor={"pointer"}
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  localStorage.removeItem("userId");
+                  setToggle(false);
+                  navigate("/Login");
+                }}
+              >
+                Logout
+              </Box>
             ) : (
-              <AiOutlineMenu size={"30px"} />
+              <Box
+                cursor={"pointer"}
+                onClick={() => {
+                  setToggle(false);
+                  navigate("/Login");
+                }}
+              >
+                login
+              </Box>
             )}
-          </Box>
+          </Flex>
         </Flex>
         <Flex
           zIndex={1}
@@ -95,6 +123,22 @@ const Header = () => {
           >
             Contact
           </Text>
+          {isLogin ? (
+            <Text
+              cursor={"pointer"}
+              className="Menu"
+              data-descr="Admin"
+              w="100%"
+              fontSize={{ lg: "xl", md: "lg", sm: "md", xs: "sm" }}
+              onClick={() => {
+                handelNavMenue("/dashboard/Admin");
+              }}
+            >
+              Admin
+            </Text>
+          ) : (
+            ""
+          )}
         </Flex>
       </Flex>
     </>
