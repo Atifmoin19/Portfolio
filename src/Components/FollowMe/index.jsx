@@ -21,6 +21,9 @@ const FollowMe = () => {
       >
         <Text
           _hover={{ transform: "translate(15px,10px)" }}
+          onClick={() => {
+            window.open("https://m.facebook.com/jsone.atif");
+          }}
           width={"100px"}
           transform="translate(35px,10px)"
           transition={".3s"}
@@ -32,6 +35,9 @@ const FollowMe = () => {
           <AiFillFacebook />
         </Text>
         <Text
+          onClick={() => {
+            window.open("https://www.instagram.com/_.a_ti_f._/");
+          }}
           _hover={{ transform: "translate(15px,10px)" }}
           width={"100px"}
           transform="translate(35px,10px)"
@@ -45,6 +51,9 @@ const FollowMe = () => {
         </Text>
         <Text
           _hover={{ transform: "translate(15px,10px)" }}
+          onClick={() => {
+            window.open("https://www.linkedin.com/in/atif-moin-858167179");
+          }}
           width={"100px"}
           transform="translate(35px,10px)"
           transition={".3s"}
@@ -57,6 +66,9 @@ const FollowMe = () => {
         </Text>
         <Text
           _hover={{ transform: "translate(15px,10px)" }}
+          onClick={() => {
+            window.open("https://github.com/Atifmoin19");
+          }}
           width={"100px"}
           transform="translate(35px,10px)"
           transition={".3s"}
