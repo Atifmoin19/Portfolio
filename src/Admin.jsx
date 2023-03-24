@@ -49,7 +49,6 @@ const Admin = () => {
       <SkelitonComp>
         <Flex minH={"100vh"} justifyContent="center" alignItems={"center"}>
           <TableContainer
-            minH={"80vh"}
             my="2rem"
             bg={"#fff"}
             shadow="2xl"
