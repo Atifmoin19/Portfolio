@@ -45,8 +45,6 @@ const ContactFrom = () => {
   }, []);
 
   const onSubmit = async (data) => {
-    var answer = window.confirm("Do you want to send contact again?");
-
     const duplicate = todo.find((element) => element.email === data.Email);
     if (duplicate === undefined) {
       try {
@@ -72,6 +70,7 @@ const ContactFrom = () => {
       }
     }
     if (duplicate !== undefined && answer) {
+      var answer = window.confirm("Do you want to send contact again?");
       console.log("ho gaya dopnara");
       try {
         const docRef = await addDoc(collection(firestore, "todos"), {
