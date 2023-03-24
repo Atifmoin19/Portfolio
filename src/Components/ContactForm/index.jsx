@@ -8,15 +8,18 @@ import {
   Textarea,
   useToast,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import SkelitonComp from "../Common/skeliton";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { firestore } from "../../firebase/index";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ContactFrom = () => {
+  const { id } = useParams();
   var date = new Date().toLocaleString();
+  const [todo, setTodo] = useState([]);
+
   const toast = useToast();
   const navigate = useNavigate();
 
@@ -27,30 +30,73 @@ const ContactFrom = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      const docRef = await addDoc(collection(firestore, "todos"), {
-        fname: data.FirstName,
-        lname: data.LastName,
-        email: data.Email,
-        mobile: data.Mobile,
-        message: data.Message,
-        date: date,
-      });
+  const fetchPost = async () => {
+    await getDocs(collection(firestore, "todos")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
 
-      toast({
-        title: "Successful",
-        position: "bottom",
-        status: "success",
-        description: `Thanks  ${
-          " " + data.FirstName + " " + data.LastName
-        } for contacting me `,
-      });
-      navigate("/");
-    } catch (e) {
-      console.error("Error adding document: ", e);
+      setTodo(newData);
+    });
+  };
+  useEffect(() => {
+    fetchPost();
+  }, []);
+
+  const onSubmit = async (data) => {
+    var answer = window.confirm("Do you want to send contact again?");
+
+    const duplicate = todo.find((element) => element.email === data.Email);
+    if (duplicate === undefined) {
+      try {
+        const docRef = await addDoc(collection(firestore, "todos"), {
+          fname: data.FirstName,
+          lname: data.LastName,
+          email: data.Email,
+          mobile: data.Mobile,
+          message: data.Message,
+          date: date,
+        });
+        toast({
+          title: "Successful",
+          position: "bottom",
+          status: "success",
+          description: `Thanks  ${
+            " " + data.FirstName + " " + data.LastName
+          } for contacting me `,
+        });
+        navigate("/");
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+    if (duplicate !== undefined && answer) {
+      console.log("ho gaya dopnara");
+      try {
+        const docRef = await addDoc(collection(firestore, "todos"), {
+          fname: data.FirstName,
+          lname: data.LastName,
+          email: data.Email,
+          mobile: data.Mobile,
+          message: data.Message,
+          date: date,
+        });
+        toast({
+          title: "Successful",
+          position: "bottom",
+          status: "success",
+          description: `Thanks  ${
+            " " + data.FirstName + " " + data.LastName
+          } for contacting me `,
+        });
+        navigate("/");
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
     }
   };
+
   window.scroll({
     top: 0,
     left: 0,
