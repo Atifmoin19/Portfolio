@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import logo from "../../Assets/logo.png";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -13,7 +13,8 @@ const Header = () => {
     localStorage.getItem("token") === useSelector((state) => state.token);
   const handelNavMenue = (cp) => {
     setToggle(false);
-    navigate(cp);
+
+    navigate("/" + cp);
     localStorage.setItem("currentpage", cp);
   };
 
@@ -45,7 +46,7 @@ const Header = () => {
             <img src={logo} alt="Logo" />
           </Box>
 
-          <Flex gap={5}>
+          <Flex gap={5} alignItems='center'>
             <Box
               cursor={"pointer"}
               onClick={() => {
@@ -68,7 +69,7 @@ const Header = () => {
                   navigate("/Login");
                 }}
               >
-                Logout
+                <Button colorScheme={"primary"}>Logout</Button>
               </Box>
             ) : (
               <Box
@@ -78,7 +79,7 @@ const Header = () => {
                   navigate("/Login");
                 }}
               >
-                login
+                <Button colorScheme={"primary"}> login</Button>
               </Box>
             )}
           </Flex>

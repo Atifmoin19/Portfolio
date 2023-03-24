@@ -1,24 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Box } from "@chakra-ui/react";
-import ContactFrom from "./Components/ContactForm";
-import FollowMe from "./Components/FollowMe";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
 import HeroSection from "./Components/HeroSection";
 import Projects from "./Components/Projects";
-
-import {
-  Routes,
-  Route,
-  BrowserRouter,
-  useNavigate,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
-import CurrentRoot from "./Components/Header/CurrentRoot";
+import ContactFrom from "./Components/ContactForm";
 import Login from "./Components/Login";
 import Admin from "./Admin";
 import { useSelector } from "react-redux";
+import { Routes, Route, Navigate, Outlet } from "react-router-dom";
+import NotFound from "./Components/NotFoun";
+
 
 const PrivateRoutes = () => {
   const isLogin =
@@ -31,28 +19,17 @@ const Content = () => {
   // console.log(isLoggedIn, "user");
   return (
     <>
-      <Box minH="100vh" position={"relative"} width="100%" overflow={"hidden"}>
-        <FollowMe />
-        <Header />
-        <CurrentRoot />
-        <Box
-          className="contentbody"
-          px={{ lg: "2rem", md: "2rem", sm: "2rem", xs: "1.2rem" }}
-        >
-          <Routes>
-            <Route path="/" element={<HeroSection />} />
-            <Route path="/Portfolio" element={<HeroSection />} />
-            <Route path="/Project" element={<Projects />} />
-            <Route path="/Contact" element={<ContactFrom />} />
-            <Route path="/Login" element={<Login />} />
-
-            <Route path="/dashboard" element={<PrivateRoutes />}>
-              <Route path="Admin" element={<Admin />} />
-            </Route>
-          </Routes>
-        </Box>
-        <Footer />
-      </Box>
+      <Routes>
+        <Route path="/" element={<HeroSection />} />
+        <Route path="/Portfolio" element={<HeroSection />} />
+        <Route path="/Project" element={<Projects />} />
+        <Route path="/Contact" element={<ContactFrom />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/dashboard" element={<PrivateRoutes />}>
+          <Route path="Admin" element={<Admin />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 };
