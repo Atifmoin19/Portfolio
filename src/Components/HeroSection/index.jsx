@@ -64,6 +64,7 @@ const HeroSection = () => {
           <Flex gap={3}>
             {/* <a href={cv} target="_blank" rel="noreferrer"> */}
             <Button
+              isDisabled
               my={"2rem"}
               colorScheme="primary"
               _hover={{ bg: "primary.400" }}
@@ -72,20 +73,20 @@ const HeroSection = () => {
               <AiOutlineDownload size={"20px"} />
             </Button>
             {/* </a> */}
-            {/* <a
-            href="https://wa.me/7007136187?text=Hello%20Atif"
-            target={"_blank"}
-          > */}
-            <Button
-              my={"2rem"}
-              variant="outline"
-              _hover={{ bg: "primary.400", color: "#fff" }}
-              colorScheme={"primary"}
+            <a
+              href="https://wa.me/7007136187?text=Hello%20Atif"
+              target={"_blank"}
             >
-              <Text mx=".2rem">WhatsApp </Text>{" "}
-              <AiOutlineWhatsApp size={"20px"} />
-            </Button>
-            {/* </a> */}
+              <Button
+                my={"2rem"}
+                variant="outline"
+                _hover={{ bg: "primary.400", color: "#fff" }}
+                colorScheme={"primary"}
+              >
+                <Text mx=".2rem">WhatsApp </Text>{" "}
+                <AiOutlineWhatsApp size={"20px"} />
+              </Button>
+            </a>
           </Flex>
         </Box>
         <Box
