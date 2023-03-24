@@ -50,7 +50,7 @@ const Admin = () => {
         <Flex minH={"100vh"} justifyContent="center" alignItems={"center"}>
           <TableContainer
             minH={"80vh"}
-            my='2rem'
+            my="2rem"
             bg={"#fff"}
             shadow="2xl"
             rounded="2xl"
@@ -58,7 +58,7 @@ const Admin = () => {
           >
             <Table
               fontSize={"sm"}
-              overflowX={'scroll'}
+              overflowX={"scroll"}
               variant="striped"
               colorScheme={"primary"}
             >
