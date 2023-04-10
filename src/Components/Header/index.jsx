@@ -46,7 +46,7 @@ const Header = () => {
             <img src={logo} alt="Logo" />
           </Box>
 
-          <Flex gap={5} alignItems='center'>
+          <Flex gap={5} alignItems="center">
             <Box
               cursor={"pointer"}
               onClick={() => {
