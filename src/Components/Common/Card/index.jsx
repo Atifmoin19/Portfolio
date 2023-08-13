@@ -26,6 +26,7 @@ const CardFlip = (props) => {
             rounded="2xl"
             bgImage={imgsrc}
             backgroundSize="cover"
+            backgroundPosition={"center"}
             display={"flex"}
             justifyContent="center"
             alignItems={"center"}

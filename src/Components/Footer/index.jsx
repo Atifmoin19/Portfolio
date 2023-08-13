@@ -18,7 +18,7 @@ const Footer = () => {
             </Text>
           </Flex>
           <Flex
-          p={'1rem'}
+            p={"1rem"}
             direction={"column"}
             justifyContent="flex-start"
             alignItems={"flex-start"}
@@ -33,7 +33,8 @@ const Footer = () => {
               <Text mx="1rem">
                 <IoIosMap />
               </Text>
-              Inderprastha Engineering College Ghaziabad
+              Maidan Garhi Rd, Chhatarpur Enclave Phase 2, Chattarpur Enclave,
+              Chhatarpur, New Delhi
             </Flex>
             <Flex my={".2rem"} justifyContent={"center"} alignItems="center">
               <Text mx="1rem">

@@ -2,6 +2,7 @@ import {
   Box,
   Flex,
   grid,
+  Image,
   Input,
   InputGroup,
   Text,
@@ -14,6 +15,7 @@ import SkelitonComp from "../Common/skeliton";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { firestore } from "../../firebase/index";
 import { useNavigate, useParams } from "react-router-dom";
+import contactImage from "../../Assets/contact.png";
 
 const ContactFrom = () => {
   const { id } = useParams();
@@ -122,17 +124,22 @@ const ContactFrom = () => {
           }}
           bg="#fff"
         >
-          <Box
-            width={{ lg: "300px", md: "300px", sm: "100%", xs: "100%" }}
+          <Flex
+            justifyContent={"center"}
+            alignItems={"center"}
+            p={"1rem"}
+            width={{ lg: "400px", md: "400px", sm: "100%", xs: "100%" }}
             minH={"70vh"}
             bg="primary.500"
-          ></Box>
+          >
+            <Image src={contactImage} />
+          </Flex>
           <Flex
             direction={"column"}
             minH={"70vh"}
             width={{
-              lg: "calc(100% - 300px)",
-              md: "calc(100% - 300px)",
+              lg: "calc(100% - 400px)",
+              md: "calc(100% - 400px)",
               sm: "100%",
               xs: "100%",
             }}

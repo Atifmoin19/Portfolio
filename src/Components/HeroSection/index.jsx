@@ -62,17 +62,20 @@ const HeroSection = () => {
             my knowledge & intelligence in the growth of the organization.
           </Text>
           <Flex gap={3}>
-            {/* <a href={cv} target="_blank" rel="noreferrer"> */}
-            <Button
-              isDisabled
-              my={"2rem"}
-              colorScheme="primary"
-              _hover={{ bg: "primary.400" }}
+            <a
+              href="https://filetools18.pdf24.org/client.php?mode=download&action=downloadJobResult&jobId=removePdfMetadata_c8e730a39896585423f1ab6d80eb905b"
+              target="_blank"
+              rel="noreferrer"
             >
-              <Text mx=".2rem">Download CV </Text>{" "}
-              <AiOutlineDownload size={"20px"} />
-            </Button>
-            {/* </a> */}
+              <Button
+                my={"2rem"}
+                colorScheme="primary"
+                _hover={{ bg: "primary.400" }}
+              >
+                <Text mx=".2rem">Download CV </Text>{" "}
+                <AiOutlineDownload size={"20px"} />
+              </Button>
+            </a>
             <a
               href="https://wa.me/7007136187?text=Hello%20Atif"
               target={"_blank"}
