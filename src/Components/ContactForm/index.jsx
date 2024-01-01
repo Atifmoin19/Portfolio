@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Flex,
   grid,
   Image,
@@ -21,6 +22,7 @@ const ContactFrom = () => {
   const { id } = useParams();
   var date = new Date().toLocaleString();
   const [todo, setTodo] = useState([]);
+  const [isLoding, setIsLoding] = useState(false);
 
   const toast = useToast();
   const navigate = useNavigate();
@@ -47,6 +49,7 @@ const ContactFrom = () => {
   }, []);
 
   const onSubmit = async (data) => {
+    setIsLoding(true);
     const duplicate = todo.find((element) => element.email === data.Email);
     if (duplicate === undefined) {
       try {
@@ -66,8 +69,15 @@ const ContactFrom = () => {
             " " + data.FirstName + " " + data.LastName
           } for contacting me `,
         });
+        setIsLoding(false);
         navigate("/");
       } catch (e) {
+        toast({
+          title: e,
+          position: "bottom",
+          status: "error",
+        });
+        setIsLoding(false);
         console.error("Error adding document: ", e);
       }
     }
@@ -91,8 +101,10 @@ const ContactFrom = () => {
             " " + data.FirstName + " " + data.LastName
           } for contacting me `,
         });
+        setIsLoding(false);
         navigate("/");
       } catch (e) {
+        setIsLoding(false);
         console.error("Error adding document: ", e);
       }
     }
@@ -233,13 +245,14 @@ const ContactFrom = () => {
                   justifyContent="center"
                   alignItems={"center"}
                 >
-                  <Input
-                    cursor={"pointer"}
-                    bg={"primary.500"}
-                    color="#fff"
+                  <Button
+                    isLoading={isLoding}
+                    colorScheme="primary"
                     w={"200px"}
                     type="submit"
-                  />
+                  >
+                    Submit
+                  </Button>
                 </InputGroup>
               </form>
             </Box>

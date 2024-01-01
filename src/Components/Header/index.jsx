@@ -66,21 +66,13 @@ const Header = () => {
                   localStorage.removeItem("token");
                   localStorage.removeItem("userId");
                   setToggle(false);
-                  navigate("/Login");
+                  navigate("/");
                 }}
               >
                 <Button colorScheme={"primary"}>Logout</Button>
               </Box>
             ) : (
-              <Box
-                cursor={"pointer"}
-                onClick={() => {
-                  setToggle(false);
-                  navigate("/Login");
-                }}
-              >
-                <Button colorScheme={"primary"}> login</Button>
-              </Box>
+              ""
             )}
           </Flex>
         </Flex>

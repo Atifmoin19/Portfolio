@@ -7,11 +7,10 @@ import { useSelector } from "react-redux";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import NotFound from "./Components/NotFoun";
 
-
 const PrivateRoutes = () => {
   const isLogin =
     localStorage.getItem("token") === useSelector((state) => state.token);
-  return isLogin ? <Outlet /> : <Navigate to={"/Login"} replace />;
+  return isLogin ? <Outlet /> : <Navigate to={"/Admin"} replace />;
 };
 
 const Content = () => {
@@ -24,9 +23,9 @@ const Content = () => {
         <Route path="/Portfolio" element={<HeroSection />} />
         <Route path="/Project" element={<Projects />} />
         <Route path="/Contact" element={<ContactFrom />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/Admin" element={<Login />} />
         <Route path="/dashboard" element={<PrivateRoutes />}>
-          <Route path="Admin" element={<Admin />} />
+          <Route path="" element={<Admin />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

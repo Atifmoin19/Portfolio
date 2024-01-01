@@ -128,3 +128,31 @@
 .outerbox:hover .innerflip {
   transform: rotateY(180deg);
 }
+
+.stylishCard:hover .boxwithicon {
+  width: 90%;
+}
+.boxwithicon::after {
+  content: "";
+  width: 30px;
+  position: absolute;
+  bottom: -30px;
+  border-top-left-radius: 1rem;
+  box-shadow: -10px -10px 2px 0px #0d1624;
+
+  left: 4px;
+  height: 30px;
+  background: initial;
+}
+
+.boxwithicon::before {
+  content: "";
+  width: 20px;
+  position: absolute;
+  top: 4px;
+  border-top-left-radius: 0.7rem;
+  box-shadow: -10px -10px 2px 0px #0d1624;
+  right: -20px;
+  height: 20px;
+  background: initial;
+}

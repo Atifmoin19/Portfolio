@@ -14,13 +14,18 @@ const CurrentRoot = () => {
   return (
     <Box mt={"5rem"}>
       <Flex width={"100%"} py=".3rem" px={"5rem"} gap="5">
-        <Text
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Home
-        </Text>
+        {cp === "Portfolio" || cp === "" ? (
+          ""
+        ) : (
+          <Text
+            cursor={"pointer"}
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Home
+          </Text>
+        )}
 
         {cp === "Portfolio" || cp === "" ? (
           ""
@@ -29,7 +34,9 @@ const CurrentRoot = () => {
             <Text>
               <IoIosArrowForward />
             </Text>
-            <Text textTransform={"capitalize"}>{cp}</Text>
+            <Text cursor={"pointer"} textTransform={"capitalize"}>
+              {cp}
+            </Text>
           </Flex>
         )}
       </Flex>

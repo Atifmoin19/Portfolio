@@ -50,7 +50,7 @@ const Login = () => {
       // } catch (e) {
       //   console.error("Error adding document: ", e);
       // }
-      navigate("/dashboard/Admin");
+      navigate("/dashboard");
     } else {
       toast({
         position: "bottom-right",
@@ -66,7 +66,7 @@ const Login = () => {
       <SkelitonComp>
         <Flex
           w={"100%"}
-          minH="100vh"
+          minH="70vh"
           justifyContent={"center"}
           alignItems="center"
         >
