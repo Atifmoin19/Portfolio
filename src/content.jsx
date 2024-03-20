@@ -6,6 +6,7 @@ import Admin from "./Admin";
 import { useSelector } from "react-redux";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import NotFound from "./Components/NotFoun";
+import LandingPage from "./Components/LandingPage";
 
 const PrivateRoutes = () => {
   const isLogin =
