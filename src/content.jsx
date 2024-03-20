@@ -20,7 +20,7 @@ const Content = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<HeroSection />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/Portfolio" element={<HeroSection />} />
         <Route path="/Project" element={<Projects />} />
         <Route path="/Contact" element={<ContactFrom />} />
