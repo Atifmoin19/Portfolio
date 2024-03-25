@@ -53,7 +53,7 @@ const theme = extendTheme({
 });
 
 ReactDOM.render(
-  <ChakraProvider theme={theme}>
+  <ChakraProvider resetCSS theme={theme}>
     <Provider store={store}>
       <App />
     </Provider>

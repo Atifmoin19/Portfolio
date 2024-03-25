@@ -1,6 +1,7 @@
 import { Button, Divider, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import atif from "../../../Assets/myimage.jpeg";
+import Insta from "../../../Assets/Logo/instagram.png";
 import {
   AiFillFacebook,
   AiFillGithub,
@@ -14,6 +15,7 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import { IoDownload, IoLocation } from "react-icons/io5";
+import DownloadBtn from "../../Common/DownloadBtn";
 
 const PersonalDetails = () => {
   return (
@@ -52,19 +54,19 @@ const PersonalDetails = () => {
           my={"1rem"}
           gap={"2"}
         >
-          <Text fontSize={"xs"} bg={"gray.100"} rounded={"sm"} p={".5rem"}>
-            <AiFillFacebook />
+          <Text fontSize={"md"} bg={"gray.100"} rounded={"sm"} p={".5rem"}>
+            <AiFillFacebook color="#1877F2" />
           </Text>
 
-          <Text fontSize={"xs"} bg={"gray.100"} rounded={"sm"} p={".5rem"}>
-            <AiFillInstagram />
+          <Text fontSize={"md"} bg={"gray.100"} rounded={"sm"} p={".5rem"}>
+            <Image w={"16px"} src={Insta} />
           </Text>
 
-          <Text fontSize={"xs"} bg={"gray.100"} rounded={"sm"} p={".5rem"}>
-            <AiFillLinkedin />
+          <Text fontSize={"md"} bg={"gray.100"} rounded={"sm"} p={".5rem"}>
+            <AiFillLinkedin color="#0A66C2" />
           </Text>
 
-          <Text fontSize={"xs"} bg={"gray.100"} rounded={"sm"} p={".5rem"}>
+          <Text fontSize={"md"} bg={"gray.100"} rounded={"sm"} p={".5rem"}>
             <AiFillGithub />
           </Text>
         </Flex>
@@ -93,7 +95,7 @@ const PersonalDetails = () => {
               alignItems={"center"}
               textAlign={"center"}
             >
-              <FaPhoneAlt />
+              <FaPhoneAlt color="#f43f5e" />
             </Flex>
             <Flex
               direction={"column"}
@@ -121,7 +123,7 @@ const PersonalDetails = () => {
               alignItems={"center"}
               textAlign={"center"}
             >
-              <FaEnvelope />
+              <FaEnvelope color="#3c82f6" />
             </Flex>
             <Flex
               direction={"column"}
@@ -149,7 +151,7 @@ const PersonalDetails = () => {
               alignItems={"center"}
               textAlign={"center"}
             >
-              <IoLocation />
+              <IoLocation color="#22c55d" />
             </Flex>
             <Flex
               direction={"column"}
@@ -166,10 +168,12 @@ const PersonalDetails = () => {
 
         {/* cv */}
         <Flex my={"1rem"}>
-          <Flex alignItems={"center"} gap={2} className="custombutton">
-            <IoDownload />
-            <Text>Download CV</Text>
-          </Flex>
+          <DownloadBtn>
+            <Flex alignItems={"center"} gap={2}>
+              <IoDownload />
+              <Text>Download CV</Text>
+            </Flex>
+          </DownloadBtn>
         </Flex>
       </Flex>
     </>

@@ -4,13 +4,14 @@
 
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 * {
-  font-family: "Arvo", serif;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
 }
 :root {
   --menue: "sss";
+  background-color: linear-gradient(0deg, #216f9c, #153f53);
 }
 /* Cool infinite background scrolling animation.
  * Twitter: @kootoopas
@@ -165,8 +166,8 @@
   content: "";
   width: 100px;
   position: absolute;
-  background: #0b5b87;
-  height: 5px;
+  background: #0ca5e9;
+  height: 3px;
   border-radius: 10px;
   top: 50%;
   transform: translate(20%, -50%);
@@ -258,23 +259,187 @@
 /* button */
 
 .custombutton {
-  background: #fbca1f;
+  background: #fff;
   font-family: inherit;
-  padding: 0.6em 1.3em;
+  padding: 1.5em 1.3em;
   font-weight: 700;
+
   font-size: 14px;
-  border: 3px solid black;
-  border-radius: 0.4em;
-  box-shadow: 0.1em 0.1em;
+  border: 2px solid black;
+  border-radius: 1em !important;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .custombutton:hover {
-  transform: translate(-0.05em, -0.05em);
   box-shadow: 0.15em 0.15em;
 }
 
 .custombutton:active {
-  transform: translate(0.05em, 0.05em);
   box-shadow: 0.05em 0.05em;
+}
+
+.hoverCards {
+  background: #fff;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid black;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.hoverCards img {
+  mix-blend-mode: luminosity;
+}
+.hoverCards:hover {
+  box-shadow: 0.15em 0.15em;
+}
+.hoverCards:hover .custombutton {
+  background-color: #fbca1f !important;
+  box-shadow: 0.15em 0.15em;
+}
+
+.hoverCards:hover img {
+  mix-blend-mode: normal;
+}
+
+.skill-box {
+  width: 100%;
+  margin: 16px 0;
+}
+
+.skill-box .skill {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.skill-box .skill-bar {
+  height: 8px;
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 6px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.skill-bar .skill-per {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: 6px;
+  background: #4070f4;
+  animation: progress 0.4s ease-in-out forwards;
+  opacity: 0;
+}
+
+.skill-per::after {
+  position: absolute;
+  border: 2px solid #4070f4;
+  border-radius: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: translate(0%, -50%);
+  content: "";
+  width: 20px;
+  top: 50%;
+  height: 20px;
+  right: 0;
+  background-color: #fff;
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.skill-per .tooltip {
+  position: absolute;
+  right: -14px;
+  top: -28px;
+  font-size: 9px;
+  font-weight: 500;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: #4070f4;
+  z-index: 1;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+  background-color: #4070f4;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.stepper {
+  min-height: 80px;
+  position: relative;
+  height: fit-content;
+}
+
+.stepper::after {
+  content: "";
+  width: 2px;
+
+  position: absolute;
+  top: 0;
+  left: -20px;
+  top: 0;
+  transform: translate(0%, 50%);
+
+  height: 80px;
+  background-color: #4070f4;
+}
+
+.stepper::before {
+  content: "";
+  width: 15px;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  left: -26px;
+  height: 15px;
+  background-color: #4070f4;
+}
+
+.non-Line::after {
+  display: none;
+}
+.inputCustom {
+  animation: justshake 0.3s forwards;
+  color: red;
+}
+
+@keyframes justshake {
+  25% {
+    transform: translateX(5px);
+  }
+
+  50% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+
+  100% {
+    transform: translateX-(5px);
+  }
 }

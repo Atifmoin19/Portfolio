@@ -7,9 +7,11 @@ const NavMenue = (props) => {
   return (
     <>
       <Flex
-        direction={"column"}
+        direction={{ lg: "column", md: "column", sm: "row", xs: "row" }}
         alignItems={"center"}
         bg={"#fff"}
+        zIndex={9999}
+        w={{ lg: "auto", md: "auto", sm: "100%", xs: "100%" }}
         h={"fit-content"}
         shadow={"md"}
         gap={"1rem"}
@@ -29,7 +31,7 @@ const NavMenue = (props) => {
               p={".5rem"}
               rounded={"md"}
               direction={"column"}
-              bg={idx + 1 === currentTab ? "secondary.500" : "gray.200"}
+              bg={idx + 1 === currentTab ? "#0a3cff" : "gray.100"}
               gap={1}
             >
               {" "}
@@ -38,12 +40,18 @@ const NavMenue = (props) => {
                 fontSize={"xs"}
                 h={"25px"}
                 justifyContent={"center"}
+                color={idx + 1 === currentTab ? "#fff" : "gray.500"}
                 alignItems={"center"}
                 textAlign={"center"}
               >
                 {item.icon}
               </Flex>
-              <Text fontSize={"xs"}>{item.title}</Text>
+              <Text
+                color={idx + 1 === currentTab ? "#fff" : "gray.500"}
+                fontSize={"xs"}
+              >
+                {item.title}
+              </Text>
             </Flex>
           );
         })}
