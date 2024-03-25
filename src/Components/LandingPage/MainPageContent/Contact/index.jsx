@@ -117,8 +117,9 @@ const Contact = () => {
   return (
     <>
       <Flex
+        w={"100%"}
         direction={"column"}
-        p={{ lg: "3rem", md: "2rem", sm: "1rem", xs: "1rem" }}
+        p={{ lg: "3rem", md: "2rem", sm: ".5rem", xs: ".5rem" }}
       >
         <Box justifyContent={"center"} alignItems="center" p={".3rem 2rem"}>
           <form onSubmit={handleSubmit(onSubmit)}>

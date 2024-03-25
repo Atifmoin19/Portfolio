@@ -13,7 +13,7 @@ const MainPageContent = (props) => {
         h={"100%"}
         bg={"#fff"}
         rounded={"xl"}
-        p={"3rem"}
+        p={{ lg: "3rem", md: "3rem", sm: "1rem", xs: "1rem" }}
         direction={"column"}
       >
         <Text
