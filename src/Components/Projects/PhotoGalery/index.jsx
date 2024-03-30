@@ -3,49 +3,49 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import img1 from "../../../Assets/Clicks/1.jpeg";
-import img2 from "../../../Assets/Clicks/2.jpeg";
-import img3 from "../../../Assets/Clicks/3.jpeg";
-import img4 from "../../../Assets/Clicks/4.jpeg";
-import img5 from "../../../Assets/Clicks/5.jpeg";
+import photo1 from "../../../Assets/Clicks/1.jpeg";
+import photo2 from "../../../Assets/Clicks/2.jpeg";
+import photo3 from "../../../Assets/Clicks/3.jpeg";
+import photo4 from "../../../Assets/Clicks/4.jpeg";
+import photo5 from "../../../Assets/Clicks/5.jpeg";
 
-import img7 from "../../../Assets/Clicks/7.jpeg";
-import img8 from "../../../Assets/Clicks/8.jpeg";
-import img9 from "../../../Assets/Clicks/9.jpeg";
-import img10 from "../../../Assets/Clicks/10.jpeg";
-import img11 from "../../../Assets/Clicks/11.jpeg";
-import img12 from "../../../Assets/Clicks/6.jpeg";
-import img13 from "../../../Assets/Clicks/13.jpeg";
-import img14 from "../../../Assets/Clicks/14.jpeg";
-import img15 from "../../../Assets/Clicks/15.jpeg";
-import img16 from "../../../Assets/Clicks/16.jpeg";
-import img17 from "../../../Assets/Clicks/17.jpeg";
-import img18 from "../../../Assets/Clicks/18.jpeg";
-import img19 from "../../../Assets/Clicks/19.jpeg";
-import img20 from "../../../Assets/Clicks/20.jpeg";
-import img21 from "../../../Assets/Clicks/21.jpeg";
+import photo7 from "../../../Assets/Clicks/7.jpeg";
+import photo8 from "../../../Assets/Clicks/8.jpeg";
+import photo9 from "../../../Assets/Clicks/9.jpeg";
+import photo10 from "../../../Assets/Clicks/10.jpeg";
+import photo11 from "../../../Assets/Clicks/11.jpeg";
+import photo12 from "../../../Assets/Clicks/6.jpeg";
+import photo13 from "../../../Assets/Clicks/13.jpeg";
+import photo14 from "../../../Assets/Clicks/14.jpeg";
+import photo15 from "../../../Assets/Clicks/15.jpeg";
+import photo16 from "../../../Assets/Clicks/16.jpeg";
+import photo17 from "../../../Assets/Clicks/17.jpeg";
+import photo18 from "../../../Assets/Clicks/18.jpeg";
+import photo19 from "../../../Assets/Clicks/19.jpeg";
+import photo20 from "../../../Assets/Clicks/20.jpeg";
+import photo21 from "../../../Assets/Clicks/21.jpeg";
 
 const cardsData = [
-  { image: img1 },
-  { image: img2 },
-  { image: img3 },
-  { image: img4 },
-  { image: img5 },
-  { image: img7 },
-  { image: img8 },
-  { image: img9 },
-  { image: img10 },
-  { image: img11 },
-  { image: img12 },
-  { image: img13 },
-  { image: img14 },
-  { image: img15 },
-  { image: img16 },
-  { image: img17 },
-  { image: img18 },
-  { image: img19 },
-  { image: img20 },
-  { image: img21 },
+  { image: photo1 },
+  { image: photo2 },
+  { image: photo3 },
+  { image: photo4 },
+  { image: photo5 },
+  { image: photo7 },
+  { image: photo8 },
+  { image: photo9 },
+  { image: photo10 },
+  { image: photo11 },
+  { image: photo12 },
+  { image: photo13 },
+  { image: photo14 },
+  { image: photo15 },
+  { image: photo16 },
+  { image: photo17 },
+  { image: photo18 },
+  { image: photo19 },
+  { image: photo20 },
+  { image: photo21 },
 ];
 
 const PhotoGalery = () => {

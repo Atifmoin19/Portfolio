@@ -20,7 +20,8 @@ import {
   onlyAllowTypingAlphabet,
   onlyAllowTypingNumbers,
 } from "../../../general";
-import LoaderButton from "../../../Common/LoaderButton";
+import LoaderButton from "../../../Common/Buttons/LoaderButton";
+import SendButton from "../../../Common/Buttons/SendButton";
 
 const Contact = () => {
   const { id } = useParams();
@@ -320,14 +321,14 @@ const Contact = () => {
               justifyContent="center"
               alignItems={"center"}
             >
-              <LoaderButton
+              <SendButton
                 w={"fit-content"}
                 type="submit"
                 isLoding={isLoding}
                 colorScheme="primary"
               >
                 Submit
-              </LoaderButton>
+              </SendButton>
             </InputGroup>
           </form>
         </Box>

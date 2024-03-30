@@ -36,7 +36,11 @@ const About = () => {
   ];
   return (
     <>
-      <Text my={"1rem"} textAlign={"left"}>
+      <Text
+        my={"1rem"}
+        textAlign={"left"}
+        fontSize={{ lg: "16px", md: "16px", sm: "13px", xs: "13px" }}
+      >
         Self-motivated and hardworking currently working as an{" "}
         <Text as="span">
           Associate Software Engineeer @
@@ -94,7 +98,7 @@ const About = () => {
           <Text fontSize={"24px"} fontWeight={"400"} my={"1rem"}>
             Web Development
           </Text>
-          <Text fontWeight={300}>
+          <Text fontWeight={300} textAlign={"justify"}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus
             adipisci voluptates. Qui explicabo accusantium incidunt iusto quod
             aspernatur? Nemo nihil cumque quod voluptatem numquam cupiditate
@@ -120,7 +124,7 @@ const About = () => {
           <Text fontSize={"24px"} fontWeight={"400"} my={"1rem"}>
             Photography
           </Text>
-          <Text fontWeight={300}>
+          <Text fontWeight={300} textAlign={"justify"}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus
             adipisci voluptates. Qui explicabo accusantium incidunt iusto quod
             aspernatur? Nemo nihil cumque quod voluptatem numquam cupiditate
@@ -145,7 +149,7 @@ const About = () => {
           <Text fontSize={"24px"} fontWeight={"400"} my={"1rem"}>
             UI/UX
           </Text>
-          <Text fontWeight={300}>
+          <Text fontWeight={300} textAlign={"justify"}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus
             adipisci voluptates. Qui explicabo accusantium incidunt iusto quod
             aspernatur? Nemo nihil cumque quod voluptatem numquam cupiditate
@@ -205,7 +209,7 @@ const About = () => {
                 {" "}
                 <Text
                   w={"fit-content"}
-                  fontSize={"20px"}
+                  fontSize={{ lg: "20px", md: "20px", sm: "18px", xs: "18px" }}
                   fontWeight={"500"}
                   h={"fit-content"}
                 >
@@ -213,14 +217,17 @@ const About = () => {
                 </Text>
                 <Text
                   w={"fit-content"}
-                  fontSize={"16px"}
+                  fontSize={{ lg: "20px", md: "20px", sm: "14px", xs: "14px" }}
                   fontWeight={"500"}
                   h={"fit-content"}
                 >
                   {item.duration}
                 </Text>
               </Flex>
-              <Text color={"gray.600"} fontSize={"16px"}>
+              <Text
+                color={"gray.600"}
+                fontSize={{ lg: "16px", md: "16px", sm: "13px", xs: "13px" }}
+              >
                 {item.board} with aggregate of {item.percentage}
               </Text>
             </Flex>

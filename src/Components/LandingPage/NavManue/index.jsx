@@ -21,6 +21,7 @@ const NavMenue = (props) => {
         {menues.map((item, idx) => {
           return (
             <Flex
+              zIndex={"999"}
               key={idx}
               cursor={"pointer"}
               w={"100%"}
@@ -31,7 +32,7 @@ const NavMenue = (props) => {
               p={".5rem"}
               rounded={"md"}
               direction={"column"}
-              bg={idx + 1 === currentTab ? "#0a3cff" : "gray.100"}
+              bg={idx + 1 === currentTab ? "#0ca5e9" : "gray.100"}
               gap={1}
             >
               {" "}
