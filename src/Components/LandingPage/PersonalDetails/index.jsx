@@ -28,19 +28,20 @@ const PersonalDetails = (props) => {
     <Flex
       direction={"column"}
       w={"100%"}
+      bg={"var(--shade1)"}
       h={"70%"}
       shadow={"md"}
+      color={"var(--font_color)"}
       zIndex={9}
-      bg={"#fff"}
       rounded={"xl"}
       justifyContent={"start"}
       alignItems={"center"}
     >
       <Image
         src={atif}
+        dropShadow={"30px 10px 4px #4444dd"}
         w={"200px"}
         my={"1rem"}
-        mt={"-5rem"}
         height={"200px"}
         rounded={"xl"}
         objectPosition={"center"}
@@ -49,7 +50,7 @@ const PersonalDetails = (props) => {
       <Text fontWeight={"bold"} fontSize={"xl"} my={".4rem"}>
         Atif Moin
       </Text>
-      <Text fontSize={"xs"} bg={"gray.100"} rounded={"md"} p={".5rem 1rem"}>
+      <Text fontSize={"xs"} bg={"var(--theme)"} rounded={"md"} p={".5rem 1rem"}>
         Associate Software Engineer
       </Text>
       <Flex my={"1rem"}>
@@ -57,8 +58,11 @@ const PersonalDetails = (props) => {
         <Button variant={"unstyled"} className="custombutton" onClick={onOpen}>
           <Flex p={"0 1rem"} alignItems={"center"} gap={2}>
             {" "}
-            <Text fontSize={"sm"}> Buy Me A</Text>
-            <IoFastFood fontSize={"md"} />
+            <Text fontSize={"sm"} color={"var(--theme)"}>
+              {" "}
+              Buy Me A
+            </Text>
+            <IoFastFood color={"var(--theme)"} fontSize={"md"} />
           </Flex>
         </Button>
       </Flex>
@@ -136,7 +140,6 @@ const PersonalDetails = (props) => {
 
       <Flex
         w={"80%"}
-        bg={"#f6f6f6"}
         p={"1rem"}
         direction={"column"}
         gap={"1rem"}
@@ -256,15 +259,6 @@ const PersonalDetails = (props) => {
       </Flex>
 
       {/* cv */}
-
-      <Flex my={"1rem"}>
-        <DownloadBtn>
-          <Flex alignItems={"center"} gap={2}>
-            <IoDownload />
-            <Text>Download CV</Text>
-          </Flex>
-        </DownloadBtn>
-      </Flex>
     </Flex>
   );
 };

@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import { collection, addDoc } from "firebase/firestore";
 import { firestore } from "../../firebase/index";
 import SkelitonComp from "../Common/skeliton";
+import { updateUserDetails } from "../../store/user.slice";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -35,21 +36,7 @@ const Login = () => {
       data.UID.toLowerCase().replaceAll(" ", "") === user &&
       data.Password.replaceAll(" ", "") === password;
     if (payload) {
-      dispatch({
-        type: "LOGIN",
-      });
-      localStorage.setItem("userId", user);
-      localStorage.setItem("token", "asdfd3e1ghjk2asdasd34567890daa");
-      // try {
-      //   const docRef = await addDoc(collection(firestore, "todos"), {
-      //     name: data.UID,
-      //     token: "asdfd3e1ghjk2asdasd34567890daa",
-      //   });
-      //   console.log("Document written with ID: ", docRef.id);
-      //   navigate(`/about/${docRef.id}`);
-      // } catch (e) {
-      //   console.error("Error adding document: ", e);
-      // }
+      dispatch(updateUserDetails());
       navigate("/dashboard");
     } else {
       toast({

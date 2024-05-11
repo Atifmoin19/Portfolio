@@ -89,10 +89,10 @@ const LandingPage = () => {
         }}
       />
       <Grid
-        className="contentbody"
+        bg={"var(--shade2)"}
         templateColumns={{
-          lg: "1.5fr 3.5fr 1fr",
-          md: "1.5fr 3.5fr 1fr",
+          lg: "1fr 3fr",
+          md: "1fr 3fr",
           sm: "1fr",
           xs: "1fr",
         }}
@@ -103,41 +103,25 @@ const LandingPage = () => {
         <Flex
           w={"100%"}
           p={"1rem"}
+          pt={"5rem"}
           minH={"100vh"}
+          top={0}
           position={{
             lg: "sticky",
             md: "sticky",
             sm: "relative",
             xs: "relative",
           }}
-          top={"0rem"}
-          pt={"8rem"}
         >
           <PersonalDetails onOpen={onOpen} />
         </Flex>
-        <Flex w={"100%"} p={"1rem"} pt={"4rem"}>
-          <MainPageContent currentTab={currentTab} manues={menues} />{" "}
-        </Flex>
-        <Flex
-          w={"100%"}
-          p={"1rem"}
-          zIndex={99}
-          pt={"4rem"}
-          h={{ lg: "100vh", md: "100vh", sm: "auto", xs: "auto" }}
-          position={{
-            lg: "sticky",
-            md: "sticky",
-            sm: "fixed",
-            xs: "fixed",
-          }}
-          top={{ lg: "0", md: "0", sm: "auto", xs: "auto" }}
-          bottom={{ lg: "auto", md: "auto", sm: "0", xs: "0" }}
-        >
+        <Flex w={"100%"} direction={"column"} position={"relative"}>
           <NavMenue
             menues={menues}
             setCurrentTab={setCurrentTab}
             currentTab={currentTab}
           />
+          <MainPageContent currentTab={currentTab} manues={menues} />{" "}
         </Flex>
       </Grid>
     </>

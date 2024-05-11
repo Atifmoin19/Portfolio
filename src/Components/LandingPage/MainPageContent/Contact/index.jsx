@@ -137,7 +137,7 @@ const Contact = () => {
               }}
             >
               <Flex direction={"column"} gap="2" w={"100%"}>
-                <Text fontWeight={"semi-bold"}>
+                <Text fontWeight={"semi-bold"} color={"var(--font_color)"}>
                   {" "}
                   First Name{" "}
                   <Text as="span" color={"red"}>
@@ -175,7 +175,7 @@ const Contact = () => {
                 )}
               </Flex>
               <Flex direction={"column"} gap="2" w={"100%"}>
-                <Text fontWeight={"semi-bold"}>
+                <Text fontWeight={"semi-bold"} color={"var(--font_color)"}>
                   {" "}
                   Last Name{" "}
                   <Text as="span" color={"red"}>
@@ -225,7 +225,7 @@ const Contact = () => {
               }}
             >
               <Flex direction={"column"} gap="2" w={"100%"}>
-                <Text fontWeight={"semi-bold"}>
+                <Text fontWeight={"semi-bold"} color={"var(--font_color)"}>
                   {" "}
                   Mobile{" "}
                   <Text as="span" color={"red"}>
@@ -261,7 +261,7 @@ const Contact = () => {
                 )}
               </Flex>
               <Flex direction={"column"} gap="2" w={"100%"}>
-                <Text fontWeight={"semi-bold"}>
+                <Text fontWeight={"semi-bold"} color={"var(--font_color)"}>
                   {" "}
                   Email{" "}
                   <Text as="span" color={"red"}>
@@ -306,7 +306,10 @@ const Contact = () => {
               gridTemplateColumns="1fr"
             >
               <Flex direction={"column"} gap="2" w={"100%"}>
-                <Text fontWeight={"semi-bold"}> Message </Text>
+                <Text fontWeight={"semi-bold"} color={"var(--font_color)"}>
+                  {" "}
+                  Message{" "}
+                </Text>
                 <Textarea
                   resize={"none"}
                   w={"100%"}

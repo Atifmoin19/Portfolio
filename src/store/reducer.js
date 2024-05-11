@@ -1,19 +1,23 @@
-import { legacy_createStore as createStore } from "redux";
-const initialState = {
-  userId: "atifmoin",
-  token: "asdfd3e1ghjk2asdasd34567890daa",
-  cart: [],
+// store.js
+
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import { userReducer } from "./user.slice";
+
+const persistConfig = {
+  key: "root",
+  storage,
 };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "LOGIN":
-      return {
-        ...state,
-      };
+const reducers = combineReducers({
+  user: userReducer,
+});
+const persistedReducer = persistReducer(persistConfig, reducers);
 
-    default:
-      return state;
-  }
-};
-export default createStore(reducer);
+export const store = configureStore({
+  reducer: persistedReducer,
+  // Add any middleware or enhancers here if needed
+});
+
+export const persistor = persistStore(store);

@@ -119,21 +119,33 @@ const ProjectMain = () => {
       <Tabs variant="unstyled" padding={"1rem 0"} w={"100%"}>
         <TabList
           position={"relative"}
+          rounded={"full"}
           mb="1em"
           w={"100%"}
-          bg={"gray.200"}
-          rounded={"full"}
+          bg={"var(--shade1)"}
+          color={"var(--font_color)"}
           p={".4rem"}
         >
-          <Tab w={"100%"} zIndex={3} fontSize={"xs"}>
+          <Tab
+            w={"100%"}
+            _selected={{ color: "#fff" }}
+            zIndex={3}
+            fontSize={"xs"}
+            rounded={"full"}
+          >
             Web Development
           </Tab>
-          <Tab w={"100%"} zIndex={3} fontSize={"xs"}>
+          <Tab
+            w={"100%"}
+            _selected={{ color: "#fff" }}
+            zIndex={3}
+            fontSize={"xs"}
+          >
             Photography
           </Tab>
 
           <TabIndicator
-            bg={"#fff"}
+            bg={"var(--gradient_tint)"}
             h={"20px"}
             rounded={"full"}
             p={"1rem"}
@@ -146,12 +158,12 @@ const ProjectMain = () => {
         <TabPanels>
           <TabPanel p={0} m={0}>
             <Flex
-              bg={"#fff"}
+              bg={"var(--shade1)"}
               w={"100%"}
               maxH={"80rem"}
               flexWrap={"wrap"}
               overflowY={"scroll"}
-              gap={"2rem"}
+              gap={"1rem"}
               p={"1rem"}
               justifyContent={"center"}
               alignItems={"start"}
@@ -163,12 +175,12 @@ const ProjectMain = () => {
           </TabPanel>
           <TabPanel p={0} m={0}>
             <Flex
-              bg={"#fff"}
+              bg={"var(--shade1)"}
               maxH={"80rem"}
               overflowY={"scroll"}
               w={"100%"}
               flexWrap={"wrap"}
-              gap={"2rem"}
+              gap={"1rem"}
               p={"1rem"}
               justifyContent={"center"}
               alignItems={"start"}

@@ -18,11 +18,13 @@ const ProjectCard = (props) => {
       <Flex
         w={"100%"}
         h={"100%"}
+        border={"1px"}
+        borderColor={"var(--font_color)"}
         shadow={"md"}
         minH={projectName ? "350px" : "fit-content"}
         zIndex={4}
         rounded={"xl"}
-        bg={"#f5f5f5"}
+        bg={"var(--shade2)"}
         p={"1rem"}
         color={"gray.600"}
         direction={"column"}
@@ -31,7 +33,7 @@ const ProjectCard = (props) => {
           w={"100%"}
           h={"200px"}
           rounded={"md"}
-          bg={"#fff"}
+          bg={"var(--shade2)"}
           overflow={"hidden"}
         >
           <Image
@@ -49,7 +51,7 @@ const ProjectCard = (props) => {
             justifyContent={"space-between"}
           >
             {" "}
-            <Text fontWeight={"bold"} color="gray.800" fontSize={"xl"}>
+            <Text fontWeight={"bold"} color="var(--font_color)" fontSize={"xl"}>
               {projectName ?? ""}
             </Text>
             <Text
@@ -67,7 +69,7 @@ const ProjectCard = (props) => {
           </Flex>
         )}
         {projectType && (
-          <Text color="gray.700" fontSize={"xs"} pr={"2rem"}>
+          <Text color="var(--font_color2)" fontSize={"xs"} pr={"2rem"}>
             {projectType ?? ""}
           </Text>
         )}

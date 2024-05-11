@@ -5,9 +5,12 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 import { Provider } from "react-redux";
-import store from "./store/reducer";
+import { store, persistor } from "./store/reducer"; // Import your Redux store
+import { PersistGate } from "redux-persist/integration/react";
 
 import App from "./App";
+
+// const persistor = persistStore(store);
 const theme = extendTheme({
   breakpoints: {
     xs: "300px",
@@ -55,7 +58,9 @@ const theme = extendTheme({
 ReactDOM.render(
   <ChakraProvider resetCSS theme={theme}>
     <Provider store={store}>
-      <App />
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </ChakraProvider>,
   document.getElementById("root")

@@ -1,9 +1,13 @@
-import { Button, Flex, Grid, Image, Text } from "@chakra-ui/react";
+import { Button, Flex, Grid, Image, Text, Tooltip } from "@chakra-ui/react";
 import React from "react";
 import zpr from "../../../../Assets/zpr.svg";
 import webDev from "../../../../Assets/Logo/code.png";
 import Photography from "../../../../Assets/Logo/photo-camera.png";
 import ui_ux from "../../../../Assets/Logo/tool.png";
+import figma from "../../../../Assets/Logo/figma.png";
+import photoshop from "../../../../Assets/Logo/photoshop.png";
+import vscode from "../../../../Assets/Logo/vscode.png";
+import xd from "../../../../Assets/Logo/xd.png";
 
 const About = () => {
   const EducationDetails = [
@@ -25,6 +29,13 @@ const About = () => {
       percentage: "70%",
       board: "St. Xavier's Senior Secondary School",
     },
+  ];
+
+  const tools = [
+    { tool: "Vs Code", link: vscode },
+    { tool: "Figma", link: figma },
+    { tool: "Photoshop", link: photoshop },
+    { tool: "Adobe XD", link: xd },
   ];
   const skills = [
     { skill: "HTML", percentage: "50%" },
@@ -72,7 +83,12 @@ const About = () => {
         What I Do!
       </Text>
       <Grid
-        templateColumns={{ lg: "1fr 1fr", md: "1fr 1fr", sm: "1fr", xs: "1fr" }}
+        templateColumns={{
+          lg: "1fr 1fr 1fr",
+          md: "1fr 1fr",
+          sm: "1fr",
+          xs: "1fr",
+        }}
         w={"100%"}
         justifyContent={"start"}
         gap={"2rem"}
@@ -87,23 +103,23 @@ const About = () => {
           p={"1rem"}
           alignItems={"center"}
         >
-          <Flex w={"100%"} justifyContent={"space-between"}>
+          <Flex w={"100%"} justifyContent={"center"}>
             {" "}
-            <Button className="custombutton">
+            {/* <Button className="custombutton">
               {" "}
-              <Text> Projects</Text>
-            </Button>
+              <Text color={"var(--theme)"}> Projects</Text>
+            </Button> */}
             <Image h={"45px"} src={webDev} />
           </Flex>
           <Text fontSize={"24px"} fontWeight={"400"} my={"1rem"}>
             Web Development
           </Text>
-          <Text fontWeight={300} textAlign={"justify"}>
+          {/* <Text fontWeight={300} textAlign={"justify"}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus
             adipisci voluptates. Qui explicabo accusantium incidunt iusto quod
             aspernatur? Nemo nihil cumque quod voluptatem numquam cupiditate
             asperiores illum officia similique?
-          </Text>
+          </Text> */}
         </Flex>
 
         <Flex
@@ -113,23 +129,23 @@ const About = () => {
           p={"1rem"}
           alignItems={"center"}
         >
-          <Flex w={"100%"} justifyContent={"space-between"}>
+          <Flex w={"100%"} justifyContent={"center"}>
             {" "}
-            <Button className="custombutton">
+            {/* <Button className="custombutton">
               {" "}
-              <Text> Projects</Text>
-            </Button>
+              <Text color={"var(--theme)"}> Projects</Text>
+            </Button> */}
             <Image h={"45px"} src={Photography} />
           </Flex>
           <Text fontSize={"24px"} fontWeight={"400"} my={"1rem"}>
             Photography
           </Text>
-          <Text fontWeight={300} textAlign={"justify"}>
+          {/* <Text fontWeight={300} textAlign={"justify"}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus
             adipisci voluptates. Qui explicabo accusantium incidunt iusto quod
             aspernatur? Nemo nihil cumque quod voluptatem numquam cupiditate
             asperiores illum officia similique?
-          </Text>
+          </Text> */}
         </Flex>
         <Flex
           className="hoverCards"
@@ -138,25 +154,69 @@ const About = () => {
           p={"1rem"}
           alignItems={"center"}
         >
-          <Flex w={"100%"} justifyContent={"space-between"}>
+          <Flex w={"100%"} justifyContent={"center"}>
             {" "}
-            <Button className="custombutton">
+            {/* <Button className="custombutton">
               {" "}
-              <Text> Projects</Text>
-            </Button>
+              <Text color={"var(--theme)"}> Projects</Text>
+            </Button> */}
             <Image h={"45px"} src={ui_ux} />
           </Flex>
           <Text fontSize={"24px"} fontWeight={"400"} my={"1rem"}>
             UI/UX
           </Text>
-          <Text fontWeight={300} textAlign={"justify"}>
+          {/* <Text fontWeight={300} textAlign={"justify"}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus
             adipisci voluptates. Qui explicabo accusantium incidunt iusto quod
             aspernatur? Nemo nihil cumque quod voluptatem numquam cupiditate
             asperiores illum officia similique?
-          </Text>
+          </Text> */}
         </Flex>
       </Grid>
+
+      <Text
+        my={"1rem"}
+        w={"fit-content"}
+        fontSize={"24px"}
+        fontWeight={"500"}
+        h={"fit-content"}
+      >
+        Familiar Tools
+      </Text>
+
+      <Flex
+        w={"100%"}
+        p={"1rem 0"}
+        justifyContent={"start"}
+        alignItems={"center"}
+        gap={"1rem"}
+      >
+        {tools.map((item, idx) => {
+          return (
+            <Tooltip label={item.tool}>
+              <Flex
+                direction={"column"}
+                border={"1px"}
+                borderColor={"var(--font_color)"}
+                // bg={"#fff"}
+                w={"80px"}
+                p={"1rem"}
+                h={"80px"}
+                overflow={"hidden"}
+                rounded={"md"}
+              >
+                <Image
+                  objectFit={"contain"}
+                  w={"100%"}
+                  h={"100%"}
+                  src={item.link}
+                />
+              </Flex>
+            </Tooltip>
+          );
+        })}
+      </Flex>
+
       <Text
         my={"1rem"}
         w={"fit-content"}
@@ -225,7 +285,7 @@ const About = () => {
                 </Text>
               </Flex>
               <Text
-                color={"gray.600"}
+                color={"var(--font_color2)"}
                 fontSize={{ lg: "16px", md: "16px", sm: "13px", xs: "13px" }}
               >
                 {item.board} with aggregate of {item.percentage}
