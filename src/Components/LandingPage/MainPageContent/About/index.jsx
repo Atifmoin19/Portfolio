@@ -1,5 +1,5 @@
 import { Button, Flex, Grid, Image, Text, Tooltip } from "@chakra-ui/react";
-import React from "react";
+import React, { useRef } from "react";
 import zpr from "../../../../Assets/zpr.svg";
 import webDev from "../../../../Assets/Logo/code.png";
 import Photography from "../../../../Assets/Logo/photo-camera.png";
@@ -8,8 +8,13 @@ import figma from "../../../../Assets/Logo/figma.png";
 import photoshop from "../../../../Assets/Logo/photoshop.png";
 import vscode from "../../../../Assets/Logo/vscode.png";
 import xd from "../../../../Assets/Logo/xd.png";
+import useInView from "../../../../CustomHooks/useInView";
+import AboutCard from "./AboutCard";
+import TooltipTools from "./TooltipComp";
 
 const About = () => {
+  const skillReff = useRef(null);
+  const isInView = useInView({ targetRef: skillReff });
   const EducationDetails = [
     {
       qualification: "Graduation",
@@ -30,12 +35,17 @@ const About = () => {
       board: "St. Xavier's Senior Secondary School",
     },
   ];
+  const workDetails = [
+    { tool: "Web Development", image: webDev, id: 1 },
+    { tool: "Photography", image: Photography, id: 2 },
+    { tool: "UI/UX", image: ui_ux, id: 3 },
+  ];
 
   const tools = [
-    { tool: "Vs Code", link: vscode },
-    { tool: "Figma", link: figma },
-    { tool: "Photoshop", link: photoshop },
-    { tool: "Adobe XD", link: xd },
+    { tool: "Vs Code", link: vscode, id: 1 },
+    { tool: "Figma", link: figma, id: 2 },
+    { tool: "Photoshop", link: photoshop, id: 3 },
+    { tool: "Adobe XD", link: xd, id: 4 },
   ];
   const skills = [
     { skill: "HTML", percentage: "50%" },
@@ -45,6 +55,7 @@ const About = () => {
     { skill: "Angular", percentage: "70%" },
     { skill: "Flutter", percentage: "30%" },
   ];
+
   return (
     <>
       <Text
@@ -96,82 +107,9 @@ const About = () => {
         alignItems={"start"}
         flexWrap={"wrap"}
       >
-        <Flex
-          className="hoverCards"
-          direction={"column"}
-          justifyContent={"center"}
-          p={"1rem"}
-          alignItems={"center"}
-        >
-          <Flex w={"100%"} justifyContent={"center"}>
-            {" "}
-            {/* <Button className="custombutton">
-              {" "}
-              <Text color={"var(--theme)"}> Projects</Text>
-            </Button> */}
-            <Image h={"45px"} src={webDev} />
-          </Flex>
-          <Text fontSize={"24px"} fontWeight={"400"} my={"1rem"}>
-            Web Development
-          </Text>
-          {/* <Text fontWeight={300} textAlign={"justify"}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus
-            adipisci voluptates. Qui explicabo accusantium incidunt iusto quod
-            aspernatur? Nemo nihil cumque quod voluptatem numquam cupiditate
-            asperiores illum officia similique?
-          </Text> */}
-        </Flex>
-
-        <Flex
-          className="hoverCards"
-          direction={"column"}
-          justifyContent={"center"}
-          p={"1rem"}
-          alignItems={"center"}
-        >
-          <Flex w={"100%"} justifyContent={"center"}>
-            {" "}
-            {/* <Button className="custombutton">
-              {" "}
-              <Text color={"var(--theme)"}> Projects</Text>
-            </Button> */}
-            <Image h={"45px"} src={Photography} />
-          </Flex>
-          <Text fontSize={"24px"} fontWeight={"400"} my={"1rem"}>
-            Photography
-          </Text>
-          {/* <Text fontWeight={300} textAlign={"justify"}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus
-            adipisci voluptates. Qui explicabo accusantium incidunt iusto quod
-            aspernatur? Nemo nihil cumque quod voluptatem numquam cupiditate
-            asperiores illum officia similique?
-          </Text> */}
-        </Flex>
-        <Flex
-          className="hoverCards"
-          direction={"column"}
-          justifyContent={"center"}
-          p={"1rem"}
-          alignItems={"center"}
-        >
-          <Flex w={"100%"} justifyContent={"center"}>
-            {" "}
-            {/* <Button className="custombutton">
-              {" "}
-              <Text color={"var(--theme)"}> Projects</Text>
-            </Button> */}
-            <Image h={"45px"} src={ui_ux} />
-          </Flex>
-          <Text fontSize={"24px"} fontWeight={"400"} my={"1rem"}>
-            UI/UX
-          </Text>
-          {/* <Text fontWeight={300} textAlign={"justify"}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed natus
-            adipisci voluptates. Qui explicabo accusantium incidunt iusto quod
-            aspernatur? Nemo nihil cumque quod voluptatem numquam cupiditate
-            asperiores illum officia similique?
-          </Text> */}
-        </Flex>
+        {workDetails?.map((item, idx) => {
+          return <AboutCard key={idx} data={item} />;
+        })}
       </Grid>
 
       <Text
@@ -189,35 +127,16 @@ const About = () => {
         p={"1rem 0"}
         justifyContent={"start"}
         alignItems={"center"}
+        flexWrap={"wrap"}
         gap={"1rem"}
       >
         {tools.map((item, idx) => {
-          return (
-            <Tooltip label={item.tool}>
-              <Flex
-                direction={"column"}
-                border={"1px"}
-                borderColor={"var(--font_color)"}
-                // bg={"#fff"}
-                w={"80px"}
-                p={"1rem"}
-                h={"80px"}
-                overflow={"hidden"}
-                rounded={"md"}
-              >
-                <Image
-                  objectFit={"contain"}
-                  w={"100%"}
-                  h={"100%"}
-                  src={item.link}
-                />
-              </Flex>
-            </Tooltip>
-          );
+          return <TooltipTools key={idx} item={item} />;
         })}
       </Flex>
 
       <Text
+        ref={skillReff}
         my={"1rem"}
         w={"fit-content"}
         fontSize={"24px"}
@@ -226,20 +145,41 @@ const About = () => {
       >
         Skills
       </Text>
-      <Flex direction={"column"} w={"100%"}>
-        {skills.map((item, idx) => {
-          return (
-            <div key={idx} direction={"column"} class="skill-box">
-              <Text class="skill">{item.skill}</Text>
-              <div class="skill-bar">
-                <span class="skill-per" style={{ width: item.percentage }}>
-                  <span class="tooltip">{item.percentage}</span>
-                </span>
+      {isInView && (
+        <Flex direction={"column"} w={"100%"}>
+          {skills.map((item, idx) => {
+            return (
+              <div key={idx} direction={"column"} class="skill-box">
+                <Text class="skill">{item.skill}</Text>
+                <div class="skill-bar">
+                  <span class="skill-per" style={{ width: item.percentage }}>
+                    <span class="tooltip">{item.percentage}</span>
+                  </span>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </Flex>
+            );
+          })}
+        </Flex>
+      )}
+      {!isInView && (
+        <Flex direction={"column"} w={"100%"} opacity={1}>
+          {skills.map((item, idx) => {
+            return (
+              <div key={idx} direction={"column"} class="skill-box">
+                <Text class="skill">{item.skill}</Text>
+                <div class="skill-bar" style={{ animationDuration: "0s" }}>
+                  <span
+                    class="skill-per"
+                    style={{ width: item.percentage, animationDuration: "0s" }}
+                  >
+                    <span class="tooltip">{item.percentage}</span>
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </Flex>
+      )}
       <Text
         my={"1rem"}
         w={"fit-content"}

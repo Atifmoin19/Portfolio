@@ -115,7 +115,13 @@ const LandingPage = () => {
         >
           <PersonalDetails onOpen={onOpen} />
         </Flex>
-        <Flex w={"100%"} direction={"column"} position={"relative"}>
+        <Flex
+          w={"100%"}
+          direction={"column"}
+          position={"relative"}
+          // width={"100% !important"}
+          overflow={"hidden"}
+        >
           <NavMenue
             menues={menues}
             setCurrentTab={setCurrentTab}

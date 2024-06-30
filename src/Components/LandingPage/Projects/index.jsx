@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import ProjectCard from "../../Common/Card/CustomCards/ProjectCard";
 import p0 from "../../../Assets/Webprojects/p0.png";
 import p1 from "../../../Assets/Webprojects/p1.png";
@@ -38,6 +38,7 @@ import photo18 from "../../../Assets/Clicks/18.jpeg";
 import photo19 from "../../../Assets/Clicks/19.jpeg";
 import photo20 from "../../../Assets/Clicks/20.jpeg";
 import photo21 from "../../../Assets/Clicks/21.jpeg";
+import useInView from "../../../CustomHooks/useInView";
 
 const photoData = [
   { image: photo1 },
@@ -63,6 +64,8 @@ const photoData = [
 ];
 
 const ProjectMain = () => {
+  const targetRef = useRef(null);
+  const isInView = useInView({ targetRef });
   const flipcardData = [
     {
       image: p0,
@@ -127,7 +130,7 @@ const ProjectMain = () => {
 
   return (
     <>
-      <Tabs variant="unstyled" padding={"1rem 0"} w={"100%"}>
+      <Tabs isLazy variant="unstyled" padding={"1rem 0"} w={"100%"}>
         <TabList
           position={"relative"}
           rounded={"full"}
@@ -159,13 +162,13 @@ const ProjectMain = () => {
             bg={"var(--gradient_tint)"}
             h={"20px"}
             rounded={"full"}
+            w={"fit-content"}
             p={"1rem"}
             top={"50%"}
             left={"0%"}
             transform={"translate(0%,-50%)"}
           />
         </TabList>
-
         <TabPanels>
           <TabPanel p={0} m={0}>
             <Flex
@@ -180,7 +183,7 @@ const ProjectMain = () => {
               alignItems={"start"}
             >
               {flipcardData.map((item, idx) => {
-                return <ProjectCard data={item} key={idx} />;
+                return <ProjectCard data={item} id={idx} key={idx} />;
               })}
             </Flex>
           </TabPanel>
@@ -197,7 +200,7 @@ const ProjectMain = () => {
               alignItems={"start"}
             >
               {photoData.map((item, idx) => {
-                return <ProjectCard data={item} key={idx} />;
+                return <ProjectCard id={idx} data={item} key={idx} />;
               })}
             </Flex>
           </TabPanel>

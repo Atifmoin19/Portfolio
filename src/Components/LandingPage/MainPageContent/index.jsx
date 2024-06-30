@@ -13,8 +13,6 @@ const MainPageContent = (props) => {
   return (
     <>
       <Flex
-        w={"100%"}
-        className="skechBorder"
         h={"100%"}
         rounded={"xl"}
         p={{ lg: "3rem", md: "3rem", sm: "1rem", xs: "1rem" }}
@@ -30,19 +28,16 @@ const MainPageContent = (props) => {
           pb={"4rem"}
           color={"var(--font_color)"}
         >
-          <Flex w={"70%"} justifyContent={"end"}>
+          <Flex w={"100%"} justifyContent={"end"}>
             {" "}
-            <Image draggable={false} maxW={"400px"} src={asset} />
+            <Image draggable={false} maxW={"350px"} src={asset} />
           </Flex>
           <Text
             background={"var(--gradient_tint)"}
             backgroundClip={"text"}
             fontWeight={"500"}
             fontSize={"40px"}
-            // letterSpacing={"4px"}
-
-            // fontStyle={"normal"}
-            w={"600px"}
+            w={{ lg: "600px", md: "500px", sm: "100%", xs: "100%" }}
           >
             I'm ATIF MOIN Software Development Engineer A.K.A. Front-End
             Developer
