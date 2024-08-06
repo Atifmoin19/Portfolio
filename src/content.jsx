@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import NotFound from "./Components/NotFoun";
 import LandingPage from "./Components/LandingPage";
+import TestComp from "./TestComp";
 
 const PrivateRoutes = () => {
   const isLogin =
@@ -21,6 +22,7 @@ const Content = () => {
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/test" element={<TestComp />} />
         <Route path="/Portfolio" element={<HeroSection />} />
         <Route path="/Project" element={<Projects />} />
         <Route path="/Contact" element={<ContactFrom />} />
