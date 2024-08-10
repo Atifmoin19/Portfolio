@@ -6,65 +6,158 @@ import ProjectMain from "../Projects";
 import DownloadBtn from "../../Common/Buttons/DownloadBtn";
 import { IoDownload } from "react-icons/io5";
 import asset from "../../../Assets/assets.png";
+import PersonalDetails from "../PersonalDetails";
+import { AiFillGithub, AiFillLinkedin, AiFillFacebook } from "react-icons/ai";
+import Insta from "../../../Assets/Logo/instagram.png";
 
 const MainPageContent = (props) => {
-  const { currentTab, manues } = props;
+  const { currentTab, manues, onOpen } = props;
 
   return (
     <>
       <Flex
         h={"100%"}
         rounded={"xl"}
-        p={{ lg: "3rem", md: "3rem", sm: "1rem", xs: "1rem" }}
+        p={"1rem"}
         direction={"column"}
         mb={"6rem"}
       >
-        <Flex
+        <Grid
+          gridTemplateColumns={{
+            lg: "1fr 2fr",
+            md: "1fr 1fr",
+            sm: "1fr",
+            xs: "1fr",
+          }}
           w={"100%"}
-          minH={"85vh"}
-          zIndex={9}
-          direction={"column"}
-          justifyContent={"end"}
-          pb={"4rem"}
-          color={"var(--font_color)"}
+          placeItems={"center"}
+          gap={{ lg: "4rem", md: "2rem", sm: "4rem", xs: "4rem" }}
+          flexWrap={"wrap"}
         >
-          <Flex w={"100%"} justifyContent={"end"}>
-            {" "}
-            <Image draggable={false} maxW={"350px"} src={asset} />
-          </Flex>
-          <Text
-            background={"var(--gradient_tint)"}
-            backgroundClip={"text"}
-            fontWeight={"500"}
-            fontSize={"40px"}
-            w={{ lg: "600px", md: "500px", sm: "100%", xs: "100%" }}
+          <PersonalDetails onOpen={onOpen} />
+          <Flex
+            w={{ lg: "80%", md: "80%", sm: "100%", xs: "100%" }}
+            // minH={"85vh"}
+            zIndex={9}
+            direction={"column"}
+            justifyContent={"end"}
+            pb={"4rem"}
+            color={"var(--font_color)"}
           >
-            I'm ATIF MOIN Software Development Engineer A.K.A. Front-End
-            Developer
-          </Text>
-          <Flex>
-            <Flex my={"1rem"}>
-              <DownloadBtn>
-                <Flex alignItems={"center"} gap={2}>
-                  <IoDownload />
-                  <Text>Download CV</Text>
-                </Flex>
-              </DownloadBtn>
+            <Text
+              background={"var(--gradient_tint)"}
+              backgroundClip={"text"}
+              fontWeight={"500"}
+              fontSize={"40px"}
+              w={{ lg: "600px", md: "500px", sm: "100%", xs: "100%" }}
+            >
+              I'm ATIF MOIN Software Development Engineer A.K.A. Front-End
+              Developer
+            </Text>
+
+            <Flex
+              alignItems={"center"}
+              justifyContent={"start"}
+              my={"1rem"}
+              gap={"2"}
+            >
+              <Text
+                fontSize={"md"}
+                bg={"var(--shade1)"}
+                border={"1px solid #e6e6e6"}
+                rounded={"md"}
+                p={".5rem"}
+                onClick={() => {
+                  window.open("https://m.facebook.com/jsone.atif");
+                }}
+                cursor={"pointer"}
+                transition={".2s ease"}
+                _hover={{ transform: "scale(1.3)" }}
+              >
+                <AiFillFacebook color="#1877F2" />
+              </Text>
+
+              <Text
+                onClick={() => {
+                  window.open("https://www.instagram.com/_.a_ti_f._/");
+                }}
+                fontSize={"md"}
+                bg={"var(--shade1)"}
+                border={"1px solid #e6e6e6"}
+                rounded={"md"}
+                p={".5rem"}
+                cursor={"pointer"}
+                transition={".2s ease"}
+                _hover={{ transform: "scale(1.3)" }}
+              >
+                <Image w={"16px"} src={Insta} />
+              </Text>
+
+              <Text
+                onClick={() => {
+                  window.open(
+                    "https://www.linkedin.com/in/atif-moin-858167179"
+                  );
+                }}
+                fontSize={"md"}
+                bg={"var(--shade1)"}
+                border={"1px solid #e6e6e6"}
+                rounded={"md"}
+                p={".5rem"}
+                cursor={"pointer"}
+                transition={".2s ease"}
+                _hover={{ transform: "scale(1.3)" }}
+              >
+                <AiFillLinkedin color="#0A66C2" />
+              </Text>
+
+              <Text
+                onClick={() => {
+                  window.open("https://github.com/Atifmoin19");
+                }}
+                fontSize={"md"}
+                bg={"var(--shade1)"}
+                border={"1px solid #e6e6e6"}
+                rounded={"md"}
+                p={".5rem"}
+                cursor={"pointer"}
+                transition={".2s ease"}
+                _hover={{ transform: "scale(1.3)" }}
+              >
+                <AiFillGithub />
+              </Text>
+            </Flex>
+            <Flex>
+              <Flex my={"1rem"}>
+                <DownloadBtn>
+                  <Flex alignItems={"center"} gap={2}>
+                    <IoDownload />
+                    <Text>Download CV</Text>
+                  </Flex>
+                </DownloadBtn>
+              </Flex>
             </Flex>
           </Flex>
-        </Flex>
+        </Grid>
+
         <Text
           w={"fit-content"}
           className="title"
           fontSize={"28px"}
           fontWeight={"bold"}
+          my={"1rem"}
           h={"fit-content"}
         >
           {manues[0].title}
         </Text>
         <Flex
+          rounded={"xl"}
           w={"100%"}
           zIndex={9}
+          p={"1rem"}
+          bg={"var(--shade1)"}
+          border={"1px solid"}
+          borderColor={"#E6E6E6"}
           direction={"column"}
           color={"var(--font_color)"}
         >
@@ -72,6 +165,8 @@ const MainPageContent = (props) => {
         </Flex>
         <Text
           w={"fit-content"}
+          id={manues[1]?.id}
+          mt={"2rem"}
           className="title"
           fontSize={"28px"}
           fontWeight={"bold"}
@@ -84,13 +179,16 @@ const MainPageContent = (props) => {
         </Flex>
         <Text
           w={"fit-content"}
+          mt={"2rem"}
           className="title"
           fontSize={"28px"}
           fontWeight={"bold"}
           h={"fit-content"}
+          id={manues[2]?.id}
         >
           {manues[2].title}
         </Text>
+
         <Flex w={"100%"} zIndex={9} direction={"column"}>
           <Contact />
         </Flex>

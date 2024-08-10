@@ -22,14 +22,15 @@ const Content = () => {
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/test" element={<TestComp />} />
-        <Route path="/Portfolio" element={<HeroSection />} />
-        <Route path="/Project" element={<Projects />} />
-        <Route path="/Contact" element={<ContactFrom />} />
-        <Route path="/Admin" element={<Login />} />
+        {/* <Route path="/admin" element={<Admin />} /> */}
+        {/* <Route path="/test" element={<TestComp />} /> */}
+        {/* <Route path="/Portfolio" element={<HeroSection />} /> */}
+        {/* <Route path="/Project" element={<Projects />} /> */}
+        {/* <Route path="/Contact" element={<ContactFrom />} /> */}
+        {/* <Route path="/Admin" element={<Login />} />
         <Route path="/dashboard" element={<PrivateRoutes />}>
           <Route path="" element={<Admin />} />
-        </Route>
+        </Route> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

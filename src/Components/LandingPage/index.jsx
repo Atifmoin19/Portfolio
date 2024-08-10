@@ -1,5 +1,5 @@
 import { Flex, Grid, Text, useDisclosure } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PersonalDetails from "./PersonalDetails";
 import MainPageContent from "./MainPageContent";
 import NavMenue from "./NavManue";
@@ -17,10 +17,23 @@ const LandingPage = () => {
 
   const { isOpen, onClose, onOpen } = useDisclosure();
   const menues = [
-    { title: "About", icon: <IoPerson color="inherit" fontSize={"20px"} /> },
-    { title: "Work", icon: <IoBag fontSize={"20px"} /> },
-    { title: "Contact", icon: <IoIosContacts fontSize={"20px"} /> },
+    {
+      title: "About",
+      id: "about",
+      icon: <IoPerson color="inherit" fontSize={"20px"} />,
+    },
+    { title: "Work", id: "work", icon: <IoBag fontSize={"20px"} /> },
+    {
+      title: "Contact",
+      id: "contact",
+      icon: <IoIosContacts fontSize={"20px"} />,
+    },
   ];
+
+  useEffect(() => {
+    const ele = document.getElementById(menues[currentTab - 1].id);
+    ele.scrollIntoView({ behavior: "smooth" });
+  }, [currentTab]);
 
   const buyNowData = [
     {
@@ -89,46 +102,23 @@ const LandingPage = () => {
         }}
       />
       <Grid
-        bg={"var(--shade2)"}
-        templateColumns={{
-          lg: "1fr 3fr",
-          md: "1fr 3fr",
-          sm: "1fr",
-          xs: "1fr",
-        }}
+        bg={"var(--theme)"}
+        px={{ lg: "4rem", md: "3rem", sm: "1rem", xs: "1rem" }}
         minH={"100vh"}
         position={"relative"}
         placeItems={"start"}
+        id={menues[0]?.id}
       >
-        <Flex
-          w={"100%"}
-          p={"1rem"}
-          pt={"5rem"}
-          minH={"100vh"}
-          top={0}
-          position={{
-            lg: "sticky",
-            md: "sticky",
-            sm: "relative",
-            xs: "relative",
-          }}
-        >
-          <PersonalDetails onOpen={onOpen} />
-        </Flex>
-        <Flex
-          w={"100%"}
-          direction={"column"}
-          position={"relative"}
-          // width={"100% !important"}
-          overflow={"hidden"}
-        >
-          <NavMenue
-            menues={menues}
-            setCurrentTab={setCurrentTab}
-            currentTab={currentTab}
-          />
-          <MainPageContent currentTab={currentTab} manues={menues} />{" "}
-        </Flex>
+        <NavMenue
+          menues={menues}
+          setCurrentTab={setCurrentTab}
+          currentTab={currentTab}
+        />
+        <MainPageContent
+          currentTab={currentTab}
+          manues={menues}
+          onOpen={onOpen}
+        />{" "}
       </Grid>
     </>
   );

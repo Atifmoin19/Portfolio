@@ -130,7 +130,7 @@ const ProjectMain = () => {
 
   return (
     <>
-      <Tabs isLazy variant="unstyled" padding={"1rem 0"} w={"100%"}>
+      <Tabs isLazy variant="unstyled" w={"100%"}>
         <TabList
           position={"relative"}
           rounded={"full"}
@@ -138,6 +138,7 @@ const ProjectMain = () => {
           w={"100%"}
           bg={"var(--shade1)"}
           color={"var(--font_color)"}
+          border={"1px solid #E6E6E6"}
           p={".4rem"}
         >
           <Tab
@@ -174,9 +175,9 @@ const ProjectMain = () => {
             <Flex
               bg={"var(--shade1)"}
               w={"100%"}
-              maxH={"80rem"}
+              // maxH={"80rem"}
               flexWrap={"wrap"}
-              overflowY={"scroll"}
+              // overflowY={"scroll"}
               gap={"1rem"}
               p={"1rem"}
               justifyContent={"center"}
@@ -190,8 +191,8 @@ const ProjectMain = () => {
           <TabPanel p={0} m={0}>
             <Flex
               bg={"var(--shade1)"}
-              maxH={"80rem"}
-              overflowY={"scroll"}
+              // maxH={"80rem"}
+              // overflowY={"scroll"}
               w={"100%"}
               flexWrap={"wrap"}
               gap={"1rem"}

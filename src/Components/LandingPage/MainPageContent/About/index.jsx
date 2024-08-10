@@ -108,7 +108,17 @@ const About = () => {
         flexWrap={"wrap"}
       >
         {workDetails?.map((item, idx) => {
-          return <AboutCard key={idx} data={item} />;
+          return (
+            <AboutCard
+              key={idx}
+              data={item}
+              onClick={() => {
+                document
+                  .getElementById("work")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            />
+          );
         })}
       </Grid>
 

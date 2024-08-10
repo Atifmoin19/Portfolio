@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import useInView from "../../../../CustomHooks/useInView";
 
 const AboutCard = (props) => {
-  const { data } = props;
+  const { data, onClick } = props;
   const targetRef = useRef(null);
   const isInView = useInView({ targetRef });
 
@@ -18,6 +18,8 @@ const AboutCard = (props) => {
           <Flex
             className="hoverCards"
             direction={"column"}
+            cursor={"pointer"}
+            onClick={onClick}
             justifyContent={"center"}
             p={"1rem"}
             alignItems={"center"}

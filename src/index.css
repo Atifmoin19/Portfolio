@@ -17,13 +17,9 @@
   --font_color: #000;
   --font_color2: #2c2c2c;
   --var_blue: #4070f4;
-  --shade1: rgb(237 239 251);
-  --shade2: rgb(228 235 245);
-  --gradient_tint: linear-gradient(
-    90deg,
-    rgba(151, 105, 255, 1) 0%,
-    rgba(116, 93, 255, 1) 100%
-  );
+  --shade1: #fafaf5;
+  --shade2: #426b1f;
+  --gradient_tint: #426b1f;
 
   /* rgb(151 105 228) rgb(116 93 226) */
 }
@@ -35,12 +31,8 @@
   --font_color: #ffffff;
   --font_color2: #d9d9d9;
   --shade1: rgb(22 22 22);
-  --shade2: rgb(16 16 16);
-  --gradient_tint: linear-gradient(
-    90deg,
-    rgba(203, 181, 255, 1) 0%,
-    rgba(154, 138, 255, 1) 100%
-  );
+  --shade2: #75c92c;
+  --gradient_tint: #75c92c;
 
   /* rgb(151 105 228) rgb(116 93 226) */
 }

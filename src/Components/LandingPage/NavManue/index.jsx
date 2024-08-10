@@ -35,7 +35,7 @@ const NavMenue = (props) => {
         top={0}
         zIndex={99}
         backdropFilter={"blur(5px)"}
-        gap={"2rem"}
+        gap={"1rem"}
         p={"1rem"}
         left={0}
         w={"100%"}
@@ -48,21 +48,20 @@ const NavMenue = (props) => {
               p={".4rem 1rem"}
               key={idx}
               cursor={"pointer"}
-              bg={"var(--theme)"}
-              border={"1px solid #fff"}
+              bg={idx + 1 === currentTab ? "var(--shade2)" : ""}
+              border={idx + 1 === currentTab ? "1px solid #fff" : ""}
               onClick={() => {
                 setCurrentTab(idx + 1);
               }}
+              color={idx + 1 === currentTab ? "#fff" : "var(--font_color)"}
               alignItems={"center"}
-              rounded={"full"}
+              rounded={"md"}
               direction={"column"}
               // bg={idx + 1 === currentTab ? "#0ca5e9" : "gray.100"}
               gap={1}
             >
               {" "}
-              <Text color={"var(--font_color)"} fontSize={"xs"}>
-                {item.title}
-              </Text>
+              <Text fontSize={"xs"}>{item.title}</Text>
             </Flex>
           );
         })}
@@ -70,17 +69,16 @@ const NavMenue = (props) => {
           position={"absolute"}
           top={"50%"}
           transform={"translate(0,-50%)"}
-          right={"10%"}
+          right={"0%"}
           fontSize={"xs"}
         >
           <ToggleSwitch
-            bg="green.500"
-            // defaultKey={"Active"}
-            defaultKey={theme === "light" ? "Active" : "Inactive"}
-            label1={"Light"}
-            label2={"Dark"}
+            bg="var(--shade2)"
+            defaultKey={theme === "dark" ? "Active" : "Inactive"}
+            label2={"Light"}
+            label1={"Dark"}
             onToggle={(newval) => {
-              setTheme(newval ? "light" : "dark");
+              setTheme(newval ? "dark" : "light");
             }}
           />
         </Flex>

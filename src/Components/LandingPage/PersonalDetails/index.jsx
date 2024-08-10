@@ -1,7 +1,7 @@
-import { Button, Divider, Flex, Image, Text } from "@chakra-ui/react";
+import { Button, Divider, Flex, Grid, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import atif from "../../../Assets/myimage.jpeg";
-import Insta from "../../../Assets/Logo/instagram.png";
+
 import {
   AiFillFacebook,
   AiFillGithub,
@@ -29,7 +29,6 @@ const PersonalDetails = (props) => {
       direction={"column"}
       w={"100%"}
       bg={"var(--shade1)"}
-      h={"70%"}
       shadow={"md"}
       color={"var(--font_color)"}
       zIndex={9}
@@ -51,7 +50,7 @@ const PersonalDetails = (props) => {
         Atif Moin
       </Text>
       <Text fontSize={"xs"} bg={"var(--theme)"} rounded={"md"} p={".5rem 1rem"}>
-        Associate Software Engineer
+        Software Development Engineer
       </Text>
       <Flex my={"1rem"}>
         {" "}
@@ -67,79 +66,16 @@ const PersonalDetails = (props) => {
         </Button>
       </Flex>
 
-      {/* follow */}
-      <Flex
-        alignItems={"center"}
-        mx={"auto"}
-        justifyContent={"center"}
-        my={"1rem"}
-        gap={"2"}
-      >
-        <Text
-          fontSize={"md"}
-          bg={"gray.100"}
-          rounded={"sm"}
-          p={".5rem"}
-          onClick={() => {
-            window.open("https://m.facebook.com/jsone.atif");
-          }}
-          cursor={"pointer"}
-          transition={".2s ease"}
-          _hover={{ transform: "scale(1.3)" }}
-        >
-          <AiFillFacebook color="#1877F2" />
-        </Text>
-
-        <Text
-          onClick={() => {
-            window.open("https://www.instagram.com/_.a_ti_f._/");
-          }}
-          fontSize={"md"}
-          bg={"gray.100"}
-          rounded={"sm"}
-          p={".5rem"}
-          cursor={"pointer"}
-          transition={".2s ease"}
-          _hover={{ transform: "scale(1.3)" }}
-        >
-          <Image w={"16px"} src={Insta} />
-        </Text>
-
-        <Text
-          onClick={() => {
-            window.open("https://www.linkedin.com/in/atif-moin-858167179");
-          }}
-          fontSize={"md"}
-          bg={"gray.100"}
-          rounded={"sm"}
-          p={".5rem"}
-          cursor={"pointer"}
-          transition={".2s ease"}
-          _hover={{ transform: "scale(1.3)" }}
-        >
-          <AiFillLinkedin color="#0A66C2" />
-        </Text>
-
-        <Text
-          onClick={() => {
-            window.open("https://github.com/Atifmoin19");
-          }}
-          fontSize={"md"}
-          bg={"gray.100"}
-          rounded={"sm"}
-          p={".5rem"}
-          cursor={"pointer"}
-          transition={".2s ease"}
-          _hover={{ transform: "scale(1.3)" }}
-        >
-          <AiFillGithub />
-        </Text>
-      </Flex>
-
       {/* contact */}
 
-      <Flex
-        w={"80%"}
+      <Grid
+        gridTemplateColumns={{
+          lg: "1fr 1fr",
+          md: "1fr 1fr",
+          sm: "1fr",
+          xs: "1fr",
+        }}
+        w={"100%"}
         p={"1rem"}
         direction={"column"}
         gap={"1rem"}
@@ -222,7 +158,7 @@ const PersonalDetails = (props) => {
           </Flex>
         </Flex>
 
-        <Flex
+        {/* <Flex
           cursor={"pointer"}
           w={"100%"}
           alignItems={"center"}
@@ -255,8 +191,8 @@ const PersonalDetails = (props) => {
               Okhla, New Delhi
             </Text>
           </Flex>
-        </Flex>
-      </Flex>
+        </Flex> */}
+      </Grid>
 
       {/* cv */}
     </Flex>
