@@ -11,6 +11,7 @@ const ProjectCard = (props) => {
   return (
     <>
       <Flex
+        flexBasis={{ lg: "auto", md: "auto", sm: "100%", xs: "100%" }}
         position={"relative"}
         className={`projectCardMain slideInAnimation`}
         style={{ animationDelay: `${0.1 * id}s` }}

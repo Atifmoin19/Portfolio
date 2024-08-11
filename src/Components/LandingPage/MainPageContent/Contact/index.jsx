@@ -324,12 +324,7 @@ const Contact = () => {
               justifyContent="center"
               alignItems={"center"}
             >
-              <SendButton
-                w={"fit-content"}
-                type="submit"
-                isLoding={isLoding}
-                colorScheme="primary"
-              >
+              <SendButton w={"fit-content"} type="submit" isLoding={isLoding}>
                 Submit
               </SendButton>
             </InputGroup>

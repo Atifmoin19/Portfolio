@@ -16,10 +16,12 @@ const BuyNowCard = (props) => {
         }}
         w="200px"
         transition={".2s ease"}
+        bg={"var(--shade2)"}
         direction={"column"}
         transformOrigin={"left"}
         p={"1rem"}
         rounded={"xl"}
+        color="var(--shade1)"
       >
         <Flex className="innerhoverCustomCard"></Flex>
         <Text zIndex={2} fontWeight={"bold"}>

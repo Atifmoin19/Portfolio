@@ -7,7 +7,7 @@ const SendButton = (props) => {
     <>
       <button
         {...rest}
-        class="flex items-center bg-[#0ca5e9] text-white gap-1 px-4 py-2 cursor-pointer text-gray-800 font-semibold tracking-widest rounded-md hover:bg-[#4dbced] duration-300 hover:gap-2 hover:translate-x-3"
+        class="flex items-center bg-[var(--shade2)] text-white gap-1 px-4 py-2 cursor-pointer text-gray-800 font-semibold tracking-widest rounded-md hover:bg-[var(--shade2)] duration-300 hover:gap-2 hover:translate-x-3"
       >
         {children}
         <svg

@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Grid, Image, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import About from "./About";
 import Contact from "./Contact";
 import ProjectMain from "../Projects";
@@ -11,7 +11,12 @@ import { AiFillGithub, AiFillLinkedin, AiFillFacebook } from "react-icons/ai";
 import Insta from "../../../Assets/Logo/instagram.png";
 
 const MainPageContent = (props) => {
-  const { currentTab, manues, onOpen } = props;
+  const { menues, onOpen, currentTab } = props;
+  useEffect(() => {
+    console.log(currentTab);
+    const ele = document.getElementById(menues[currentTab - 1]?.id);
+    ele.scrollIntoView({ behavior: "smooth" });
+  }, [currentTab]);
 
   return (
     <>
@@ -129,11 +134,14 @@ const MainPageContent = (props) => {
             </Flex>
             <Flex>
               <Flex my={"1rem"}>
-                <DownloadBtn>
-                  <Flex alignItems={"center"} gap={2}>
-                    <IoDownload />
-                    <Text>Download CV</Text>
-                  </Flex>
+                <DownloadBtn
+                  icon={<IoDownload />}
+                  // isDisabled={true}
+                  onClick={(e) => {
+                    console.log("");
+                  }}
+                >
+                  <Text>Download CV</Text>
                 </DownloadBtn>
               </Flex>
             </Flex>
@@ -148,7 +156,7 @@ const MainPageContent = (props) => {
           my={"1rem"}
           h={"fit-content"}
         >
-          {manues[0].title}
+          {menues[0]?.title}
         </Text>
         <Flex
           rounded={"xl"}
@@ -165,14 +173,14 @@ const MainPageContent = (props) => {
         </Flex>
         <Text
           w={"fit-content"}
-          id={manues[1]?.id}
+          id={menues[1]?.id}
           mt={"2rem"}
           className="title"
           fontSize={"28px"}
           fontWeight={"bold"}
           h={"fit-content"}
         >
-          {manues[1].title}
+          {menues[1]?.title}
         </Text>
         <Flex w={"100%"} zIndex={9} direction={"column"}>
           <ProjectMain />
@@ -184,9 +192,9 @@ const MainPageContent = (props) => {
           fontSize={"28px"}
           fontWeight={"bold"}
           h={"fit-content"}
-          id={manues[2]?.id}
+          id={menues[2]?.id}
         >
-          {manues[2].title}
+          {menues[2]?.title}
         </Text>
 
         <Flex w={"100%"} zIndex={9} direction={"column"}>

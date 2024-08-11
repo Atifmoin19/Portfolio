@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   userId: "",
-  theme: "dark", // Set initial theme here
+  theme: "light", // Set initial theme here
   token: "",
   cart: [],
 };
@@ -11,7 +11,14 @@ const userSlice = createSlice({
   name: "user",
   initialState: initialState,
   reducers: {
-    updateUserDetails: () => initialState,
+    updateUserDetails: (state, action) => {
+      state.userId = action.payload?.userId;
+      state.token = action.payload?.userId + action.payload?.password;
+    },
+    resertUserDetails: (state) => {
+      state.userId = initialState.userId;
+      state.token = initialState.token;
+    },
     updateSelectedTheme: (state, action) => {
       state.theme = action.payload;
     },
@@ -19,4 +26,5 @@ const userSlice = createSlice({
 });
 
 export const { reducer: userReducer, actions } = userSlice;
-export const { updateUserDetails, updateSelectedTheme } = actions;
+export const { updateUserDetails, updateSelectedTheme, resertUserDetails } =
+  actions;

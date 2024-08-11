@@ -36,7 +36,7 @@ const Login = () => {
       data.UID.toLowerCase().replaceAll(" ", "") === user &&
       data.Password.replaceAll(" ", "") === password;
     if (payload) {
-      dispatch(updateUserDetails());
+      dispatch(updateUserDetails({ userId: user, password: password }));
       navigate("/dashboard");
     } else {
       toast({
@@ -129,13 +129,9 @@ const Login = () => {
                 justifyContent="center"
                 alignItems={"center"}
               >
-                <Input
-                  cursor={"pointer"}
-                  bg={"primary.500"}
-                  color="#fff"
-                  w={"200px"}
-                  type="submit"
-                />
+                <Button colorScheme="green" w={"200px"} type="submit">
+                  Login
+                </Button>
               </InputGroup>
             </form>
           </Flex>

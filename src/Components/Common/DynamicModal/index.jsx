@@ -72,7 +72,7 @@ const DynamicModal = (props) => {
         }
         transition={".2s"}
         direction={"column"}
-        bg={type === "side" ? "#fff" : "transparent"}
+        bg={type === "side" ? "var(--shade1)" : "transparent"}
         w={
           type === "side"
             ? { lg: width, md: width, sm: "100%", xs: "100%" }
@@ -92,7 +92,7 @@ const DynamicModal = (props) => {
       >
         {type === "center" ? (
           <Box
-            bg={"#fff"}
+            bg={"var(--shade1)"}
             w={"100%"}
             rounded={type === "center" ? "2xl" : "0"}
             overflow="hidden"
@@ -118,6 +118,7 @@ const DynamicModal = (props) => {
                   bg={"tertiary.500"}
                   p={"1rem"}
                   rounded={"xl"}
+                  color="var(--font_color)"
                   justifyContent={title ? "space-between" : "end"}
                   alignItems={"center"}
                 >
@@ -192,7 +193,7 @@ const DynamicModal = (props) => {
                 p={"1rem 1rem"}
               >
                 {isCloseIcon && (
-                  <Flex p={"1rem .3rem"} w={"100%"}>
+                  <Flex p={"1rem .3rem"} w={"100%"} color="var(--font_color)">
                     <Flex
                       w={"100%"}
                       bg={"tertiary.500"}

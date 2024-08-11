@@ -72,7 +72,7 @@ const CircleComponent = (props) => {
               left={isDesktop ? "42%" : "35%"}
               background={"#fff"}
               color={"#000"}
-              filter={activeId !== item.id ? "blur(4px)" : ""}
+              filter={activeId !== item?.id ? "blur(4px)" : ""}
               justifyContent={"center"}
               alignItems={"center"}
               rounded={"full"}

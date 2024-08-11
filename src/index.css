@@ -269,7 +269,7 @@
 /* button */
 
 .custombutton {
-  background: var(--font_color2) !important;
+  background: var(--shade2) !important;
   font-family: inherit;
   padding: 1.5em 1.3em;
   font-weight: 700;

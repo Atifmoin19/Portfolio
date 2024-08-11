@@ -48,14 +48,15 @@ const Admin = () => {
         querySnapshot.docs[querySnapshot.docs.length - 1]?.data().date;
       setLastDoc(lastDoc);
       setTodo(newData);
+      setTimeout(() => {
+        setLoading(true);
+      }, 2000);
     });
   };
 
   useEffect(() => {
     fetchPost();
-    setTimeout(() => {
-      setLoading(true);
-    }, 3000);
+    setLoading(false);
   }, [page]);
   let cats = [];
   cats = todo.map((q) => q.email);
@@ -64,22 +65,30 @@ const Admin = () => {
   return (
     <>
       <SkelitonComp>
-        <Flex minH={"100vh"} justifyContent="center" alignItems={"center"}>
+        <Flex
+          minH={"100vh"}
+          w={"100%"}
+          overflow={"hidden"}
+          justifyContent="center"
+          alignItems={"center"}
+        >
           <TableContainer
+            w={"100%"}
+            overflow={"scroll"}
             minH={"100vh"}
             my="2rem"
             bg={"#fff"}
             shadow="2xl"
-            rounded="2xl"
-            w={"calc(100% - 100px)"}
+            rounded="xl"
+            // w={"calc(100% - 100px)"}
           >
             <Table
               fontSize={"sm"}
-              overflowX={"scroll"}
+              // overflowX={"scroll"}
               variant="striped"
-              colorScheme={"primary"}
+              colorScheme={"gray"}
             >
-              <Thead>
+              <Thead w={"100%"}>
                 <Tr>
                   <Th fontSize={"md"}>Name</Th>
                   <Th fontSize={"md"}>Email</Th>
@@ -89,7 +98,7 @@ const Admin = () => {
               <Tbody>
                 {todo.map((items, index) => {
                   return (
-                    <Tr key={index}>
+                    <Tr key={index} w={"200px"} overflow={"hidden"}>
                       <Td>
                         <Skeleton isLoaded={loding}>
                           {items.fname.toUpperCase() +
